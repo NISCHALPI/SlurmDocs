@@ -1,0 +1,46 @@
+[tool.poetry]
+name = "slurmdocs"
+version = "0.1.0"
+description = "A simple cli tool to generate documentation for slurm"
+authors = ["hades <nischalbhattaraipi@gmail.com>"]
+readme = "README.md"
+packages = [{include = "slurmdocs", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+select =["E", "F", "I", "UP", "ANN", "ARG", "D", "RET", "TCH"]
+exclude = ["tests", "docs", "*test_*"]
+src =['./ftrain']
+# Ignore long lines and self annotations 
+ignore =['ANN101', 'E501', 'ANN002', 'ANN003']
+
+[tool.ruff.per-file-ignores]
+"__init__.py" = ["E402", "F401"]
+
+[tool.ruff.flake8-quotes]
+docstring-quotes = "double"
+
+[tool.ruff.pydocstyle]
+convention = "google"
+
+
+[tool.black]
+use-single-quotes = false
+line-length = 88
+skip-string-normalization = true
+target-version = ["py310"]
+
+[tool.black.paths]
+include = ["./src/navigator"]
+
+[tool.pytest.ini_options]
+pythonpath = [
+  "src"
+]
