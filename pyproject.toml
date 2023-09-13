@@ -8,7 +8,12 @@ packages = [{include = "slurmdocs", from = "src"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
+paramiko = "^3.3.1"
+pandas = "^2.1.0"
 
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.2"
 
 [build-system]
 requires = ["poetry-core"]
@@ -38,7 +43,7 @@ skip-string-normalization = true
 target-version = ["py310"]
 
 [tool.black.paths]
-include = ["./src/navigator"]
+include = ["./src/"]
 
 [tool.pytest.ini_options]
 pythonpath = [

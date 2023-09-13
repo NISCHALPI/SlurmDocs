@@ -51,27 +51,24 @@ class Ilscpu(IParse):
         """Initialize the Ilscpu object."""
         super().__init__('lscpu')
 
-    def _parse_lscpu(self, filename: Path) -> pd.Series:
+    def _parse_lscpu(self, string: str) -> pd.Series:
         """Parse LSCPU output from the specified file.
 
         Args:
-            filename (Path): The path to the file containing LSCPU output.
+            string (Path): lscp output as a string.
 
         Returns:
             pd.Series: Parsed data stored as a pandas Series.
         """
-        with open(filename) as f:
-            lines = f.readlines()
-
         data = {}
-        for line in lines:
+
+        for line in string:
+            # Skip empty lines
+            if line == '\n':
+                continue
+
             # Strip whitespace
             line = line.strip()
-
-            if len(self.start_exclude) != 0 and line.startswith(
-                tuple(self.start_exclude)
-            ):
-                continue
 
             key, value = line.split(':', maxsplit=1)
             key = key.strip()
@@ -96,4 +93,7 @@ class Ilscpu(IParse):
         Returns:
             pd.Series: Parsed data stored as a pandas Series.
         """
-        return self._parse_lscpu(filename)
+        with open(filename) as f:
+            string = f.readlines()
+
+        return self._parse_lscpu(string=string)
