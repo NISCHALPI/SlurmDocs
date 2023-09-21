@@ -55,13 +55,15 @@ class AbstractCollecter(ABC):
 
         Args:
             icollecter (ICollecter): An instance of a class implementing the ICollecter interface.
-            save_dir (str | Path | None, optional): The directory to save collected data. Defaults to None.
+            save_dir (str | Path | None, optional): The directory to save collected data. Defaults to cwd.
         """
         # Check if icollecter is an instance of ICollecter
         if not isinstance(icollecter, ICollecter):
             raise TypeError(
                 f"icollecter must be an instance of ICollecter. Got {type(icollecter)} instead."
             )
+
+        self._icollecter = icollecter
 
         # Check if save_dir is a string or a Path
         # If it is a string, convert it to a Path
@@ -71,18 +73,17 @@ class AbstractCollecter(ABC):
         if save_dir is not None:
             if isinstance(save_dir, str):
                 save_dir = Path(save_dir)
+
             elif not isinstance(save_dir, Path):
                 raise TypeError(
                     f"save_dir must be a string or a Path. Got {type(save_dir)} instead."
                 )
             if not save_dir.exists():
-                raise FileNotFoundError(
-                    f"save_dir does not exist. Got {save_dir} instead."
-                )
+                raise FileNotFoundError(f"save_dir {save_dir} does not exist.")
 
             self._save_dir = save_dir
-
-        self._icollecter = icollecter
+        else:
+            self._save_dir = Path.cwd()
 
         super().__init__()
 
@@ -147,7 +148,7 @@ class AbstractCollecter(ABC):
         Returns:
             str: The collected data.
         """
-        return self._collect(session, filename=filename)
+        return self._collect(session, filename=filename, **kwargs)
 
 
 class Collecter(AbstractCollecter):

@@ -35,10 +35,10 @@ import pandas as pd
 
 from .base_iparse import IParse
 
-__all__ = ["Iscontrol"]
+__all__ = ["IscontrolParser"]
 
 
-class Iscontrol(IParse):
+class IscontrolParser(IParse):
     """Parses Slurm's 'scontrol show node' output.
 
     This class, 'Iscontrol', is designed to parse information from the output of the 'scontrol show node' command in Slurm, converting it into a pandas DataFrame for easier manipulation and analysis.
@@ -176,9 +176,10 @@ class Iscontrol(IParse):
 
         partition_dataframe = pd.DataFrame(
             index=dataframe.index, columns=unique_partitions, dtype=bool
-        ).map(
-            lambda x: False
         )  # noqa: ARG005
+
+        # Use XOR to fill the dataframe with False
+        partition_dataframe = partition_dataframe ^ partition_dataframe
 
         for index, row in dataframe.iterrows():
             for partition in row['Partitions'].split(','):

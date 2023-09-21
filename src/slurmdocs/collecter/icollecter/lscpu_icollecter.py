@@ -43,10 +43,10 @@ from slurmdocs.session.ssh_session import SSHSessionAuth
 
 from .icollecter import ICollecter
 
-__all__ = ['Ilscpu']
+__all__ = ['IlscpuCollecter']
 
 
-class Ilscpu(ICollecter):
+class IlscpuCollecter(ICollecter):
     """Collect the lscpu information."""
 
     def __init__(self, timeout: float = 10) -> None:
@@ -71,12 +71,12 @@ class Ilscpu(ICollecter):
             str: The collected 'lscpu' information as a string.
         """
         # Check for additional arguments
-        if "partition" not in kwargs.keys():
-            raise ValueError("partition argument is required.")
-        if "qos" not in kwargs.keys():
-            raise ValueError("qos argument is required.")
-        if "node" not in kwargs.keys():
+        if "node" not in kwargs:
             raise ValueError("node argument is required.")
+        if "partition" not in kwargs:
+            raise ValueError("partition argument is required.")
+        if "qos" not in kwargs:
+            raise ValueError("qos argument is required.")
 
         # Get the partition, qos, and node
         partition = kwargs["partition"]
@@ -84,10 +84,22 @@ class Ilscpu(ICollecter):
         node = kwargs["node"]
 
         # Slurm srun command to run lscpu on the node
-        cmd = f'srun -n 1 -c 1 -p {partition} --qos {qos} --nodelist={node} lscpu'
+        cmd = f'srun -n 1 -c 1 -p {partition} --qos {qos} -J {node[-1:-5]} --nodelist={node} lscpu'
 
         # Run the command
-        stdin, stdout, stderr = session.session.exec_command(cmd)
+        try:
+            stdin, stdout, stderr = session.session.exec_command(
+                cmd, timeout=self._timeout
+            )
+        except TimeoutError:
+            session.session.exec_command(
+                f'scancel -n {node[-1:-5]} -u {session.remote_username}'
+            )
+            raise TimeoutError(
+                f"""Timeout when running the command: {cmd}.
+                               Check if the node {node} is available under partition : {partition} and QOS: {qos}.
+                               Check if the node is not busy."""
+            )
 
         # Read the output
         stdout = stdout.read().decode('utf-8')

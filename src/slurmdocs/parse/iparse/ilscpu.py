@@ -30,10 +30,10 @@ import pandas as pd
 
 from .base_iparse import IParse
 
-__all__ = ["Ilscpu"]
+__all__ = ["IlscpuParser"]
 
 
-class Ilscpu(IParse):
+class IlscpuParser(IParse):
     """Parses LSCPU output.
 
     This class implements the IParse interface for parsing data from 'lscpu' command output files.

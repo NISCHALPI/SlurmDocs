@@ -10,10 +10,12 @@ packages = [{include = "slurmdocs", from = "src"}]
 python = "^3.10"
 paramiko = "^3.3.1"
 pandas = "^2.1.0"
+black = "^23.9.1"
 
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.4.2"
+ipykernel = "^6.25.2"
 
 [build-system]
 requires = ["poetry-core"]
@@ -22,7 +24,7 @@ build-backend = "poetry.core.masonry.api"
 [tool.ruff]
 select =["E", "F", "I", "UP", "ANN", "ARG", "D", "RET", "TCH"]
 exclude = ["tests", "docs", "*test_*"]
-src =['./ftrain']
+src =['./slurmdocs']
 # Ignore long lines and self annotations 
 ignore =['ANN101', 'E501', 'ANN002', 'ANN003']
 
@@ -43,9 +45,9 @@ skip-string-normalization = true
 target-version = ["py310"]
 
 [tool.black.paths]
-include = ["./src/"]
+include = ["/src"]
 
 [tool.pytest.ini_options]
 pythonpath = [
-  "src"
+  "/src"
 ]

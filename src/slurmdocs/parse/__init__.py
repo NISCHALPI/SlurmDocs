@@ -1,3 +1,3 @@
 """Top Level Imports for parse module."""
-from .iparse import Ilscpu, Iscontrol
+from .iparse import IlscpuParser, IscontrolParser
 from .parser import Parser

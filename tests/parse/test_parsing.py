@@ -4,13 +4,13 @@ import pandas as pd
 
 
 from slurmdocs.parse.parser import Parser
-from slurmdocs.parse import Ilscpu, Iscontrol
+from slurmdocs.parse import IlscpuParser, IscontrolParser
 
 
 def test_lscpu():
     # Instantiate the parser
     parser = Parser(
-        iparser=Ilscpu(),
+        iparser=IlscpuParser(),
     )
 
     # Save the output of lscpu to a file
@@ -38,7 +38,7 @@ def test_lscpu():
 def test_scontrol_show_node():
     # Instantiate the parser
     parser = Parser(
-        iparser=Iscontrol(preprocess=True),
+        iparser=IscontrolParser(preprocess=True),
     )
 
     # Get the output of scontrol show node

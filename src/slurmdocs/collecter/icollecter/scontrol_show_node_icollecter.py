@@ -47,10 +47,10 @@ from slurmdocs.session.ssh_session import SSHSessionAuth
 
 from .icollecter import ICollecter
 
-__all__ = ['Iscontrol']
+__all__ = ['IscontrolColllecter']
 
 
-class Iscontrol(ICollecter):
+class IscontrolColllecter(ICollecter):
     """Iscontrol Class.
 
     Collects information from a Slurm cluster using the 'scontrol show node' command.
@@ -74,7 +74,7 @@ class Iscontrol(ICollecter):
         """
         super().__init__(timeout, feature="lscpu")
 
-    def _collect(self, session: SSHSessionAuth, **kwargs) -> str:
+    def _collect(self, session: SSHSessionAuth, **kwargs) -> str: # noqa : ARG002
         """Collect information using the 'scontrol show node' command.
 
         Args:
@@ -88,10 +88,13 @@ class Iscontrol(ICollecter):
             str: The collected information as a string.
         """
         # Run the scontrol show node command
-        stdin, stdout, stderr = session.session.exec_command(
-            'scontrol show node', timeout=self._timeout
-        )
-
+        try:
+            stdin, stdout, stderr = session.session.exec_command(
+                'scontrol show node', timeout=self._timeout
+            )
+        except TimeoutError:
+            raise TimeoutError("Timeout occured! See if the server is available")
+        
         # Read the output and error
         output = stdout.read().decode('utf-8')
         error = stderr.read().decode('utf-8')
