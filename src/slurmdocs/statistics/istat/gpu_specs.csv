@@ -1,0 +1,5 @@
+Model,CUDACores,TensorCores,HalfPrecisionTFLOPS,SinglePrecisionTFLOPS,DoublePrecisionTFLOPS,Memory,DeepLearningTFLOPS
+t4,2560,320,65,8.1,0.0,16,0
+v100,5120,640,125,14.0,7.0,16,112
+v100-32,5120,640,125,14.7,7.0,32,112
+a100-80,6912,6912,310,19.5,9.7,80,156
