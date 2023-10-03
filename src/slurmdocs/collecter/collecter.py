@@ -114,7 +114,10 @@ class AbstractCollecter(ABC):
                     "filename must be specified when save_dir is specified."
                 )
             with open(
-                os.path.join(self._save_dir, filename + ".txt"),
+                os.path.join(
+                    self._save_dir,
+                    filename + ".txt" if not filename.endswith(".txt") else filename,
+                ),
                 "w",
             ) as f:
                 f.write(data)

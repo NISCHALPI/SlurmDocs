@@ -74,7 +74,7 @@ class IscontrolColllecter(ICollecter):
         """
         super().__init__(timeout, feature="lscpu")
 
-    def _collect(self, session: SSHSessionAuth, **kwargs) -> str: # noqa : ARG002
+    def _collect(self, session: SSHSessionAuth, **kwargs) -> str:  # noqa : ARG002
         """Collect information using the 'scontrol show node' command.
 
         Args:
@@ -94,7 +94,7 @@ class IscontrolColllecter(ICollecter):
             )
         except TimeoutError:
             raise TimeoutError("Timeout occured! See if the server is available")
-        
+
         # Read the output and error
         output = stdout.read().decode('utf-8')
         error = stderr.read().decode('utf-8')

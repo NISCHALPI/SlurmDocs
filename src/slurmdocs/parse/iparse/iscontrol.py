@@ -29,6 +29,7 @@ Returns:
     pd.DataFrame: Parsed data stored as a pandas DataFrame.
 """
 
+import re
 from pathlib import Path
 
 import pandas as pd
@@ -153,14 +154,14 @@ class IscontrolParser(IParse):
         if gpu is None:
             return None
 
-        gpu = gpu.split(',')
+        # Define a regular expression pattern to match GPU entries
+        gpu_pattern = r'gpu:([a-zA-Z0-9-]+:\d+)'
 
-        ret_str = ''
-        for tag in gpu:
-            if tag.startswith('gpu'):
-                ret_str += tag.split(':')[1] + ','
+        # Find all GPU matches in the text
+        gpu_matches = re.findall(gpu_pattern, gpu)
 
-        return ret_str[:-1]
+        # Join the matches into a single string by comma
+        return ','.join(gpu_matches)
 
     def _partitionize(self, dataframe: pd.DataFrame) -> pd.DataFrame:
         """Convert the 'Partitions' field into separate columns in the DataFrame.

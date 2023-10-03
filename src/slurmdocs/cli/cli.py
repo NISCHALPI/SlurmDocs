@@ -53,7 +53,13 @@ logger = get_logger(name=__name__)
 @click.option(
     '-db',
     '--database',
-    type=click.Path(exists=True , writable=True, readable=True, resolve_path=True, path_type=pathlib.Path),
+    type=click.Path(
+        exists=True,
+        writable=True,
+        readable=True,
+        resolve_path=True,
+        path_type=pathlib.Path,
+    ),
     default=os.path.join(os.path.expanduser("~"), ".slurmdocs", "database"),
     help='Path to the database.(Default: ~/.slurmdocs/database/)',
 )
@@ -81,7 +87,6 @@ def main(
     logger.debug("Starting CLI.")
 
     return
-
 
 
 if __name__ == "__main__":
