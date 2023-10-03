@@ -154,12 +154,8 @@ class BaseDatabase(ABC):
         pass
 
     @abstractmethod
-    def print(self) -> str:
-        """Print the database.
-
-        Returns:
-            str: A string representation of the database.
-        """
+    def print(self) -> None:
+        """Print the database."""
         pass
 
     @abstractmethod
@@ -198,7 +194,7 @@ class BaseDatabase(ABC):
         Returns:
             str: A string representation of the database.
         """
-        return self.print()
+        return f"{self.__class__.__name__}(db_path={self.db_path})"
 
     def __str__(self) -> str:
         """Return the string representation of the database.
@@ -206,4 +202,4 @@ class BaseDatabase(ABC):
         Returns:
             str: A string representation of the database.
         """
-        return self.print()
+        return self.__repr__()

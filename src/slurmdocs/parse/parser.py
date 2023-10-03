@@ -55,11 +55,8 @@ class AbstractParser(ABC):
         Raises:
             TypeError: If iparser is not an instance of IParse.
         """
-        # Verify iparser is IParse
-        if not isinstance(iparser, IParse):
-            raise TypeError(f"iparser must be IParse, not {type(iparser)}")
+        # Set the IParse interface
         self.iparser = iparser
-
         return
 
     def _check_file_integrity(self, filepath: str | Path) -> None:
@@ -111,6 +108,39 @@ class AbstractParser(ABC):
 
         # Parse data
         return self.iparser(filepath)
+
+    @property
+    def iparser(self) -> IParse:
+        """Get the IParse interface used by the AbstractParser.
+
+        Returns:
+            IParse: The IParse interface used by the AbstractParser.
+        """
+        return self._iparser
+
+    @iparser.setter
+    def iparser(self, iparser: IParse) -> None:
+        """Set the IParse interface used by the AbstractParser.
+
+        Args:
+            iparser (IParse): The IParse interface used by the AbstractParser.
+        """
+        if not isinstance(iparser, IParse):
+            raise TypeError(f"iparser must be IParse, not {type(iparser)}")
+
+        self._iparser = iparser
+
+        return
+
+    def swap(self, iparser: IParse) -> None:
+        """Swap the IParse interface used by the AbstractParser.
+
+        Args:
+            iparser (IParse): The IParse interface used by the AbstractParser.
+        """
+        self.iparser = iparser
+
+        return
 
     def __call__(self, filepath: str | Path) -> pd.Series:
         """Call method for parsing data from a file.

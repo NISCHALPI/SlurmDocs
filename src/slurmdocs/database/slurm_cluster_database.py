@@ -108,10 +108,10 @@ class SlurmClusterDatabase(BaseDatabase):
         # Init Parsers
         self.iparsers = {'cpu': IlscpuParser(), 'node': IscontrolParser()}
         self.parser = Parser(
-            iparser=self.iparsers[0],
+            iparser=self.iparsers['cpu'],
         )
 
-        super().__init__(_location=db_path)
+        super().__init__(db_path=self.db_path)
 
     def is_empty(self) -> bool:
         """Check if the database is empty.
@@ -119,13 +119,18 @@ class SlurmClusterDatabase(BaseDatabase):
         Returns:
             bool: True if the database is empty, False otherwise.
         """
-        # Check for subdirectories in the database
-        if self._cpu_db_name not in os.listdir(self.db_path):
-            warnings.warn(f"Database {self.db_path} doesn't contain cpu db.")
+        # Check if cpu and node subdirectories exist or not
+        if (
+            not (self.db_path / self._cpu_db_name).exists()
+            or not (self.db_path / self._node_db_name).exists()
+        ):
             return True
 
-        if self._node_db_name not in os.listdir(self.db_path):
-            warnings.warn(f"Database {self.db_path} doesn't contain node db.")
+        # Check if any files exist in cpu and node subdirectories. If not, database is empty
+        if (
+            len(os.listdir(self.db_path / self._cpu_db_name)) == 0
+            and len(os.listdir(self.db_path / self._node_db_name)) == 0
+        ):
             return True
 
         return False
@@ -133,8 +138,14 @@ class SlurmClusterDatabase(BaseDatabase):
     def create(self) -> None:
         """Create subdirectories for the database."""
         # Create subdirectories
-        (self.db_path / self._cpu_db_name).mkdir(parents=True)
-        (self.db_path / self._node_db_name).mkdir(parents=True)
+        if not self.db_path.exists():
+            self.db_path.mkdir(parents=True)
+
+        # make cpu and node subdirectories
+        if not (self.db_path / self._cpu_db_name).exists():
+            (self.db_path / self._cpu_db_name).mkdir(parents=True)
+        if not (self.db_path / self._node_db_name).exists():
+            (self.db_path / self._node_db_name).mkdir(parents=True)
 
     def __delete(self, path: str | Path) -> None:
         """Delete a directory and its contents.
@@ -146,9 +157,14 @@ class SlurmClusterDatabase(BaseDatabase):
         if isinstance(path, str):
             path = Path(path)
 
-        # Delete subdirectories
-        shutil.rmtree(path)
-        shutil.rmtree(path)
+        # If directory
+        if path.is_dir():
+            # Use shutil to delete directory
+            shutil.rmtree(path)
+        # If file
+        elif path.is_file():
+            # Use os to delete file
+            os.remove(path)
 
     def delete(self) -> None:
         """Delete the database and its subdirectories."""
@@ -214,11 +230,11 @@ class SlurmClusterDatabase(BaseDatabase):
         """
         return self._print_directory_tree(self.db_path)
 
-    def _check_key(self, data: dict) -> str:
+    def _check_key(self, query: dict) -> str:
         """Check if the data dictionary contains a valid key.
 
         Args:
-            data (dict): The data dictionary.
+            query (dict): The data dictionary.
 
         Raises:
             KeyError: If the data dictionary does not contain a valid key.
@@ -227,22 +243,22 @@ class SlurmClusterDatabase(BaseDatabase):
             str: The valid key ('cpu' or 'node').
         """
         # Check if key contains cpu or node
-        if 'key' not in data:
-            raise KeyError(f"Key {data} does not contain key.")
+        if 'key' not in query:
+            raise KeyError(f"Key {query} does not contain key.")
 
-        if data['key'] not in ['cpu', 'node']:
-            raise KeyError(f"Key {data} does not contain cpu or node.")
+        if query['key'] not in ['cpu', 'node']:
+            raise KeyError(f"Key {query} does not contain cpu or node.")
 
-        if data['key'] == 'cpu':
+        if query['key'] == 'cpu':
             return 'cpu'
 
         return 'node'
 
-    def _key_filepath(self, data: dict) -> tuple[Path, str]:
-        """Get the key and filepath from the data dictionary.
+    def _key_filepath(self, query: dict) -> tuple[Path, str]:
+        """Get the key and filepath from the query dictionary.
 
         Args:
-            data (dict): The data dictionary.
+            query (dict): The data dictionary.
 
         Raises:
             KeyError: If the data dictionary does not contain a valid key or filename.
@@ -251,19 +267,19 @@ class SlurmClusterDatabase(BaseDatabase):
             tuple[Path, str]: A tuple containing the key and filepath.
         """
         # Check the key
-        key = self._check_key(data)
+        key = self._check_key(query)
 
         # Check get filename
-        if 'filename' not in data:
-            raise KeyError(f"Key {data} does not contain filename.")
+        if 'filename' not in query:
+            raise KeyError(f"Key {query} does not contain filename.")
 
-        return key, self.db_path / key / data['filename']
+        return key, self.db_path / key / query['filename']
 
-    def _data_filepath(self, data: dict) -> tuple[Path, str]:
+    def _filepath_data(self, query: dict) -> tuple[Path, str]:
         """Get the data filepath from the data dictionary.
 
         Args:
-            data (dict): The data dictionary.
+            query (dict): The data dictionary.
 
         Raises:
             KeyError: If the data dictionary does not contain a valid key, filename, or data.
@@ -272,45 +288,41 @@ class SlurmClusterDatabase(BaseDatabase):
             tuple[Path, str]: A tuple containing the filepath and data.
         """
         # Check the key
-        key = self._check_key(data)
+        key, filepath = self._key_filepath(query)
 
-        # Check get filename
-        if 'filename' not in data:
-            raise KeyError(f"Key {data} does not contain filename.")
+        if 'data' not in query:
+            raise KeyError(f"Key {query} does not contain data.")
 
-        if 'data' not in data:
-            raise KeyError(f"Key {data} does not contain data.")
+        return filepath, query['data']
 
-        return self.db_path / key / data['filename'], data['data']
-
-    def insert(self, data: dict) -> None:
+    def insert(self, query: dict) -> None:
         """Insert data into the database.
 
         Args:
-            data (dict): A dictionary containing information to be inserted into the database.
+            query (dict): A dictionary containing information to be inserted into the database.
         """
         # Get filepath and data
-        filepath, data = self._data_filepath(data)
+        filepath, data = self._filepath_data(query)
 
         # Write data to file
         with open(filepath, 'w') as f:
             f.write(data)
 
-    def update(self, data: dict) -> None:
+    def update(self, query: dict) -> None:
         """Update data in the database.
 
         Args:
-            data (dict): A dictionary containing information to be updated in the database.
+            query (dict): A dictionary containing information to be updated in the database.
         """
         # Get filepath and data
-        filepath, data = self._data_filepath(data)
+        filepath, data = self._filepath_data(query)
 
         # If file does not exist, insert data
         if not filepath.exists():
             raise FileNotFoundError(f"File {filepath} does not exist.")
 
         # Write data to file
-        self.insert(data)
+        self.insert({'key': query['key'], 'filename': query['filename'], 'data': data})
 
     def query(self, query: dict) -> pd.Series | pd.DataFrame:
         """Query data from the database based on a specified query.
@@ -324,18 +336,20 @@ class SlurmClusterDatabase(BaseDatabase):
         Returns:
             pd.Series | pd.DataFrame: The queried data as a Pandas Series or DataFrame.
         """
-        if 'key' not in query:
-            raise KeyError(f"Key {query} does not contain key.")
-        if 'filename' not in query:
-            raise KeyError(f"Key {query} does not contain filename.")
+        # Empty Guards
+        if self.is_empty():
+            raise FileNotFoundError(f"Database {self.db_path} is empty.")
 
-        # Parse the file using the parser
-        if query['key'] == 'cpu':
-            self.parser.iparser = self.iparsers['cpu']
-        elif query['key'] == 'node':
-            self.parser.iparser = self.iparsers['node']
+        # Get key and filepath
+        key, filepath = self._key_filepath(query)
 
-        return self.parser(filepath=self.db_path / query['key'] / query['filename'])
+        # Change parser based on key
+        if key == 'cpu':
+            self.parser.swap(self.iparsers['cpu'])
+        elif key == 'node':
+            self.parser.swap(self.iparsers['node'])
+
+        return self.parser(filepath=filepath)
 
     def is_cpu_file_available(self, filename: str | Path) -> bool:
         """Check if a CPU data file is available in the database.
@@ -357,10 +371,53 @@ class SlurmClusterDatabase(BaseDatabase):
         Returns:
             bool: True if the node data file is available, False otherwise.
         """
-        if os.listdir((self.db_path / 'node').exists()).__len__() != 1:
+        if self.is_empty():
+            return False
+
+        if os.listdir(self.db_path / self._node_db_name).__len__() != 1:
             return False
 
         return True
+
+    def get_cpu_file(self, filename: str | Path) -> pd.Series:
+        """Get the filepath of the CPU data file.
+
+        Args:
+            filename (str | Path): The filename of the CPU data.
+
+        Returns:
+            pd.Series: The queried CPU data as a Pandas Series.
+        """
+        return self.query({'key': 'cpu', 'filename': filename})
+
+    def get_node_file(self) -> pd.DataFrame:
+        """Get the filepath of the node data file.
+
+        Returns:
+            pd.DataFrame: The queried node data as a Pandas DataFrame.
+        """
+        return self.query(
+            {
+                'key': 'node',
+                'filename': os.listdir(self.db_path / self._node_db_name)[0],
+            }
+        )
+
+    def read_as_text(self, query: dict) -> str:
+        """Read the queried data as text.
+
+        Args:
+            query (dict): A dictionary containing a query to retrieve data.
+
+        Returns:
+            str: The queried data as text.
+        """
+        # Get key and filepath
+        key, filepath = self._key_filepath(query)
+
+        # Read data from file
+        with open(filepath) as f:
+            return f.read()
 
     def __getitem__(self, key: dict) -> pd.Series | pd.DataFrame:
         """Implement the [] operator for querying data from the database.
@@ -386,7 +443,10 @@ class SlurmClusterDatabase(BaseDatabase):
 
         # Get node data
         node_df = self.query(
-            {'key': 'node', 'filename': os.listdir(self.db_path / 'node')[0]}
+            {
+                'key': 'node',
+                'filename': os.listdir(self.db_path / self._node_db_name)[0],
+            }
         )
 
         # Get all the NodeName
@@ -398,4 +458,14 @@ class SlurmClusterDatabase(BaseDatabase):
         ]
 
         # Calculate coverage
-        return sum(cpu_files) / len(cpu_files)
+        return sum(cpu_files) * 100 / len(cpu_files)
+
+    def __len__(self) -> int:
+        """Return the number of files in the database.
+
+        Returns:
+            int: The number of files in the database.
+        """
+        return len(os.listdir(self.db_path / self._cpu_db_name)) + len(
+            os.listdir(self.db_path / self._node_db_name)
+        )

@@ -1,0 +1,1539 @@
+NodeName=compute-0-0 Arch=x86_64 CoresPerSocket=10 
+   CPUAlloc=0 CPUTot=40 CPULoad=0.01
+   AvailableFeatures=rack-0,40CPUs,R930,e7-8891v4,intel,avx,avx2
+   ActiveFeatures=rack-0,40CPUs,R930,e7-8891v4,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.195 NodeHostName=compute-0-0 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=2063881 AllocMem=0 FreeMem=1442549 Sockets=4 Boards=1
+   MemSpecLimit=8000
+   State=IDLE ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,threaded 
+   BootTime=2023-09-13T01:49:08 SlurmdStartTime=2023-09-13T01:50:05
+   CfgTRES=cpu=40,mem=2063881M,billing=543
+   AllocTRES=
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-0-1 Arch=x86_64 CoresPerSocket=10 
+   CPUAlloc=12 CPUTot=40 CPULoad=10.87
+   AvailableFeatures=rack-0,40CPUs,R930,e7-8891v4,intel,avx,avx2
+   ActiveFeatures=rack-0,40CPUs,R930,e7-8891v4,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.194 NodeHostName=compute-0-1 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=2063881 AllocMem=307200 FreeMem=1317181 Sockets=4 Boards=1
+   MemSpecLimit=8000
+   State=MIXED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,threaded 
+   BootTime=2023-08-01T08:41:49 SlurmdStartTime=2023-09-07T10:26:57
+   CfgTRES=cpu=40,mem=2063881M,billing=543
+   AllocTRES=cpu=12,mem=300G
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-0-2 Arch=x86_64 CoresPerSocket=10 
+   CPUAlloc=0 CPUTot=40 CPULoad=0.01
+   AvailableFeatures=rack-0,40CPUs,R930,e7-8891v4,intel,avx,avx2
+   ActiveFeatures=rack-0,40CPUs,R930,e7-8891v4,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.213 NodeHostName=compute-0-2 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=2063881 AllocMem=0 FreeMem=1862075 Sockets=4 Boards=1
+   MemSpecLimit=8000
+   State=IDLE ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,threaded 
+   BootTime=2023-07-25T19:39:23 SlurmdStartTime=2023-09-07T10:26:57
+   CfgTRES=cpu=40,mem=2063881M,billing=543
+   AllocTRES=
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-0-3 Arch=x86_64 CoresPerSocket=10 
+   CPUAlloc=0 CPUTot=40 CPULoad=0.01
+   AvailableFeatures=rack-0,40CPUs,R930,e7-8891v4,intel,avx,avx2
+   ActiveFeatures=rack-0,40CPUs,R930,e7-8891v4,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.214 NodeHostName=compute-0-3 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=2063881 AllocMem=0 FreeMem=1824403 Sockets=4 Boards=1
+   MemSpecLimit=8000
+   State=IDLE ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,threaded 
+   BootTime=2023-07-25T15:33:24 SlurmdStartTime=2023-09-07T10:26:57
+   CfgTRES=cpu=40,mem=2063881M,billing=543
+   AllocTRES=
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-1-0 Arch=x86_64 CoresPerSocket=12 
+   CPUAlloc=17 CPUTot=24 CPULoad=17.01
+   AvailableFeatures=rack-1,24CPUs,C6420,6126,intel,avx,avx2
+   ActiveFeatures=rack-1,24CPUs,C6420,6126,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.215 NodeHostName=compute-1-0 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=94909 AllocMem=79872 FreeMem=9527 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=MIXED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,long 
+   BootTime=2023-07-21T14:14:52 SlurmdStartTime=2023-09-07T10:26:56
+   CfgTRES=cpu=24,mem=94909M,billing=47
+   AllocTRES=cpu=17,mem=78G
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-1-1 Arch=x86_64 CoresPerSocket=12 
+   CPUAlloc=17 CPUTot=24 CPULoad=17.03
+   AvailableFeatures=rack-1,24CPUs,C6420,6126,intel,avx,avx2
+   ActiveFeatures=rack-1,24CPUs,C6420,6126,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.242 NodeHostName=compute-1-1 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=94915 AllocMem=79872 FreeMem=51351 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=MIXED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,long 
+   BootTime=2023-07-06T10:34:36 SlurmdStartTime=2023-09-07T10:26:56
+   CfgTRES=cpu=24,mem=94915M,billing=47
+   AllocTRES=cpu=17,mem=78G
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-1-2 Arch=x86_64 CoresPerSocket=12 
+   CPUAlloc=9 CPUTot=24 CPULoad=9.01
+   AvailableFeatures=rack-1,24CPUs,C6420,6126,intel,avx,avx2
+   ActiveFeatures=rack-1,24CPUs,C6420,6126,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.241 NodeHostName=compute-1-2 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=94915 AllocMem=81920 FreeMem=50211 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=MIXED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,long 
+   BootTime=2023-07-06T10:35:06 SlurmdStartTime=2023-09-07T10:26:56
+   CfgTRES=cpu=24,mem=94915M,billing=47
+   AllocTRES=cpu=9,mem=80G
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-1-3 Arch=x86_64 CoresPerSocket=12 
+   CPUAlloc=21 CPUTot=24 CPULoad=21.01
+   AvailableFeatures=rack-1,24CPUs,C6420,6126,intel,avx,avx2
+   ActiveFeatures=rack-1,24CPUs,C6420,6126,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.240 NodeHostName=compute-1-3 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=94915 AllocMem=79872 FreeMem=17609 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=MIXED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,long 
+   BootTime=2023-07-06T10:35:49 SlurmdStartTime=2023-09-07T10:26:56
+   CfgTRES=cpu=24,mem=94915M,billing=47
+   AllocTRES=cpu=21,mem=78G
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-1-4 Arch=x86_64 CoresPerSocket=12 
+   CPUAlloc=21 CPUTot=24 CPULoad=21.01
+   AvailableFeatures=rack-1,24CPUs,C6420,6126,intel,avx,avx2
+   ActiveFeatures=rack-1,24CPUs,C6420,6126,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.238 NodeHostName=compute-1-4 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=94915 AllocMem=86016 FreeMem=76657 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=MIXED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,long 
+   BootTime=2023-07-06T10:35:51 SlurmdStartTime=2023-09-07T10:26:56
+   CfgTRES=cpu=24,mem=94915M,billing=47
+   AllocTRES=cpu=21,mem=84G
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-1-5 Arch=x86_64 CoresPerSocket=12 
+   CPUAlloc=17 CPUTot=24 CPULoad=17.01
+   AvailableFeatures=rack-1,24CPUs,C6420,6126,intel,avx,avx2
+   ActiveFeatures=rack-1,24CPUs,C6420,6126,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.237 NodeHostName=compute-1-5 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=94915 AllocMem=53248 FreeMem=77583 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=MIXED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,long 
+   BootTime=2023-07-06T10:36:15 SlurmdStartTime=2023-09-07T10:26:56
+   CfgTRES=cpu=24,mem=94915M,billing=47
+   AllocTRES=cpu=17,mem=52G
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-1-6 Arch=x86_64 CoresPerSocket=12 
+   CPUAlloc=9 CPUTot=24 CPULoad=9.01
+   AvailableFeatures=rack-1,24CPUs,C6420,6126,intel,avx,avx2
+   ActiveFeatures=rack-1,24CPUs,C6420,6126,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.236 NodeHostName=compute-1-6 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=94915 AllocMem=67584 FreeMem=38883 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=MIXED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,long 
+   BootTime=2023-07-15T04:52:24 SlurmdStartTime=2023-09-07T10:26:56
+   CfgTRES=cpu=24,mem=94915M,billing=47
+   AllocTRES=cpu=9,mem=66G
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-1-7 Arch=x86_64 CoresPerSocket=12 
+   CPUAlloc=2 CPUTot=24 CPULoad=7.41
+   AvailableFeatures=rack-1,24CPUs,C6420,6126,intel,avx,avx2
+   ActiveFeatures=rack-1,24CPUs,C6420,6126,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.235 NodeHostName=compute-1-7 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=94915 AllocMem=67584 FreeMem=50984 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=MIXED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,long 
+   BootTime=2023-07-06T10:36:29 SlurmdStartTime=2023-09-07T10:26:56
+   CfgTRES=cpu=24,mem=94915M,billing=47
+   AllocTRES=cpu=2,mem=66G
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-1-8 Arch=x86_64 CoresPerSocket=8 
+   CPUAlloc=16 CPUTot=16 CPULoad=15.67
+   AvailableFeatures=rack-1,16CPUs,C6420,6244,intel,avx,avx2
+   ActiveFeatures=rack-1,16CPUs,C6420,6244,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.234 NodeHostName=compute-1-8 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=1030281 AllocMem=112192 FreeMem=640499 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=ALLOCATED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,ultrahigh 
+   BootTime=2023-09-06T00:23:51 SlurmdStartTime=2023-09-07T10:26:56
+   CfgTRES=cpu=16,mem=1030281M,billing=267
+   AllocTRES=cpu=16,mem=112192M
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-1-9 Arch=x86_64 CoresPerSocket=18 
+   CPUAlloc=13 CPUTot=36 CPULoad=17.83
+   AvailableFeatures=rack-1,36CPUs,C6420,6240,intel,avx,avx2
+   ActiveFeatures=rack-1,36CPUs,C6420,6240,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.228 NodeHostName=compute-1-9 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=191711 AllocMem=26624 FreeMem=112401 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=MIXED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,owners 
+   BootTime=2023-07-06T10:37:37 SlurmdStartTime=2023-09-07T10:26:56
+   CfgTRES=cpu=36,mem=191711M,billing=82
+   AllocTRES=cpu=13,mem=26G
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-1-10 Arch=x86_64 CoresPerSocket=18 
+   CPUAlloc=1 CPUTot=36 CPULoad=1.01
+   AvailableFeatures=rack-1,36CPUs,C6420,6240,intel,avx,avx2
+   ActiveFeatures=rack-1,36CPUs,C6420,6240,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.227 NodeHostName=compute-1-10 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=191711 AllocMem=65536 FreeMem=101901 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=MIXED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,owners 
+   BootTime=2023-07-06T10:37:50 SlurmdStartTime=2023-09-07T10:26:56
+   CfgTRES=cpu=36,mem=191711M,billing=82
+   AllocTRES=cpu=1,mem=64G
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-1-11 Arch=x86_64 CoresPerSocket=18 
+   CPUAlloc=0 CPUTot=36 CPULoad=0.01
+   AvailableFeatures=rack-1,36CPUs,C6420,6240,intel,avx,avx2
+   ActiveFeatures=rack-1,36CPUs,C6420,6240,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.226 NodeHostName=compute-1-11 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=191711 AllocMem=0 FreeMem=186114 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=IDLE ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,owners 
+   BootTime=2023-09-17T00:05:07 SlurmdStartTime=2023-09-17T00:05:43
+   CfgTRES=cpu=36,mem=191711M,billing=82
+   AllocTRES=
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-2-0 Arch=x86_64 CoresPerSocket=12 
+   CPUAlloc=0 CPUTot=24 CPULoad=4.13
+   AvailableFeatures=rack-2,24CPUs,Nutanix,e5-2650v4,intel,avx,avx2
+   ActiveFeatures=rack-2,24CPUs,Nutanix,e5-2650v4,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.202 NodeHostName=compute-2-0 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=257673 AllocMem=0 FreeMem=244139 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=IDLE ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,highmem 
+   BootTime=2023-08-01T08:19:14 SlurmdStartTime=2023-09-07T10:26:57
+   CfgTRES=cpu=24,mem=257673M,billing=86
+   AllocTRES=
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-2-1 Arch=x86_64 CoresPerSocket=12 
+   CPUAlloc=1 CPUTot=24 CPULoad=5.37
+   AvailableFeatures=rack-2,24CPUs,Nutanix,e5-2650v4,intel,avx,avx2
+   ActiveFeatures=rack-2,24CPUs,Nutanix,e5-2650v4,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.201 NodeHostName=compute-2-1 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=257673 AllocMem=1024 FreeMem=234739 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=MIXED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,highmem 
+   BootTime=2023-08-01T08:21:55 SlurmdStartTime=2023-09-07T10:26:56
+   CfgTRES=cpu=24,mem=257673M,billing=86
+   AllocTRES=cpu=1,mem=1G
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-2-2 Arch=x86_64 CoresPerSocket=12 
+   CPUAlloc=0 CPUTot=24 CPULoad=3.76
+   AvailableFeatures=rack-2,24CPUs,Nutanix,e5-2650v4,intel,avx,avx2
+   ActiveFeatures=rack-2,24CPUs,Nutanix,e5-2650v4,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.199 NodeHostName=compute-2-2 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=257676 AllocMem=0 FreeMem=145053 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=IDLE ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,highmem 
+   BootTime=2023-08-01T08:36:48 SlurmdStartTime=2023-09-07T10:26:56
+   CfgTRES=cpu=24,mem=257676M,billing=86
+   AllocTRES=
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-2-3 Arch=x86_64 CoresPerSocket=12 
+   CPUAlloc=0 CPUTot=24 CPULoad=4.24
+   AvailableFeatures=rack-2,24CPUs,Nutanix,e5-2650v4,intel,avx,avx2
+   ActiveFeatures=rack-2,24CPUs,Nutanix,e5-2650v4,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.198 NodeHostName=compute-2-3 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=257673 AllocMem=0 FreeMem=233147 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=IDLE ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,highmem 
+   BootTime=2023-08-01T08:24:26 SlurmdStartTime=2023-09-07T10:26:56
+   CfgTRES=cpu=24,mem=257673M,billing=86
+   AllocTRES=
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-2-4 Arch=x86_64 CoresPerSocket=10 
+   CPUAlloc=0 CPUTot=20 CPULoad=3.62
+   AvailableFeatures=rack-2,20CPUs,Nutanix,e5-2650v4,intel,avx,avx2
+   ActiveFeatures=rack-2,20CPUs,Nutanix,e5-2650v4,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.197 NodeHostName=compute-2-4 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=515709 AllocMem=0 FreeMem=311022 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=IDLE ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,highmem 
+   BootTime=2023-08-01T08:37:07 SlurmdStartTime=2023-09-07T10:26:57
+   CfgTRES=cpu=20,mem=515709M,billing=145
+   AllocTRES=
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-2-5 Arch=x86_64 CoresPerSocket=10 
+   CPUAlloc=0 CPUTot=20 CPULoad=3.71
+   AvailableFeatures=rack-2,20CPUs,Nutanix,e5-2650v4,intel,avx,avx2
+   ActiveFeatures=rack-2,20CPUs,Nutanix,e5-2650v4,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.196 NodeHostName=compute-2-5 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=515709 AllocMem=0 FreeMem=344681 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=IDLE ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,highmem 
+   BootTime=2023-08-01T08:37:10 SlurmdStartTime=2023-09-07T10:26:57
+   CfgTRES=cpu=20,mem=515709M,billing=145
+   AllocTRES=
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-4-12 Arch=x86_64 CoresPerSocket=8 
+   CPUAlloc=7 CPUTot=16 CPULoad=7.01
+   AvailableFeatures=rack-4,16CPUs,m630,e5-2640v3,intel,avx,avx2
+   ActiveFeatures=rack-4,16CPUs,m630,e5-2640v3,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.180 NodeHostName=compute-4-12 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=128661 AllocMem=14336 FreeMem=17259 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=MIXED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,owners 
+   BootTime=2023-08-31T09:39:57 SlurmdStartTime=2023-09-07T10:26:57
+   CfgTRES=cpu=16,mem=128661M,billing=47
+   AllocTRES=cpu=7,mem=14G
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-4-13 Arch=x86_64 CoresPerSocket=8 
+   CPUAlloc=6 CPUTot=16 CPULoad=6.04
+   AvailableFeatures=rack-4,16CPUs,m630,e5-2640v3,intel,avx,avx2
+   ActiveFeatures=rack-4,16CPUs,m630,e5-2640v3,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.179 NodeHostName=compute-4-13 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=128661 AllocMem=103424 FreeMem=2702 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=MIXED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,owners 
+   BootTime=2023-08-31T09:47:08 SlurmdStartTime=2023-09-07T10:26:57
+   CfgTRES=cpu=16,mem=128661M,billing=47
+   AllocTRES=cpu=6,mem=101G
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-5-0 Arch=x86_64 CoresPerSocket=8 
+   CPUAlloc=3 CPUTot=16 CPULoad=3.01
+   AvailableFeatures=rack-5,16CPUs,m630,e5-2640v3,intel,avx,avx2
+   ActiveFeatures=rack-5,16CPUs,m630,e5-2640v3,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.178 NodeHostName=compute-5-0 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=128661 AllocMem=4096 FreeMem=111372 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=MIXED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,owners 
+   BootTime=2023-08-31T09:20:30 SlurmdStartTime=2023-09-07T10:26:57
+   CfgTRES=cpu=16,mem=128661M,billing=47
+   AllocTRES=cpu=3,mem=4G
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-5-1 Arch=x86_64 CoresPerSocket=8 
+   CPUAlloc=8 CPUTot=16 CPULoad=8.02
+   AvailableFeatures=rack-5,16CPUs,m630,e5-2640v3,intel,avx,avx2
+   ActiveFeatures=rack-5,16CPUs,m630,e5-2640v3,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.177 NodeHostName=compute-5-1 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=128661 AllocMem=53248 FreeMem=40057 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=MIXED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,owners 
+   BootTime=2023-08-31T09:25:36 SlurmdStartTime=2023-09-07T10:27:00
+   CfgTRES=cpu=16,mem=128661M,billing=47
+   AllocTRES=cpu=8,mem=52G
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-5-2 Arch=x86_64 CoresPerSocket=10 
+   CPUAlloc=9 CPUTot=20 CPULoad=9.01
+   AvailableFeatures=rack-5,20CPUs,m630,e5-2640v4,intel,avx,avx2
+   ActiveFeatures=rack-5,20CPUs,m630,e5-2640v4,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.176 NodeHostName=compute-5-2 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=128658 AllocMem=118784 FreeMem=86741 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=MIXED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,owners 
+   BootTime=2023-09-07T10:23:34 SlurmdStartTime=2023-09-07T10:26:58
+   CfgTRES=cpu=20,mem=128658M,billing=51
+   AllocTRES=cpu=9,mem=116G
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-5-3 Arch=x86_64 CoresPerSocket=10 
+   CPUAlloc=9 CPUTot=20 CPULoad=9.01
+   AvailableFeatures=rack-5,20CPUs,m630,e5-2640v4,intel,avx,avx2
+   ActiveFeatures=rack-5,20CPUs,m630,e5-2640v4,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.175 NodeHostName=compute-5-3 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=128658 AllocMem=118784 FreeMem=97935 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=MIXED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,owners 
+   BootTime=2023-09-07T07:47:05 SlurmdStartTime=2023-09-07T10:26:57
+   CfgTRES=cpu=20,mem=128658M,billing=51
+   AllocTRES=cpu=9,mem=116G
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-5-4 Arch=x86_64 CoresPerSocket=10 
+   CPUAlloc=10 CPUTot=20 CPULoad=10.03
+   AvailableFeatures=rack-5,20CPUs,m630,e5-2640v4,intel,avx,avx2
+   ActiveFeatures=rack-5,20CPUs,m630,e5-2640v4,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.174 NodeHostName=compute-5-4 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=128658 AllocMem=119808 FreeMem=100273 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=MIXED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,owners 
+   BootTime=2023-09-07T10:09:28 SlurmdStartTime=2023-09-07T10:26:57
+   CfgTRES=cpu=20,mem=128658M,billing=51
+   AllocTRES=cpu=10,mem=117G
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-5-5 Arch=x86_64 CoresPerSocket=10 
+   CPUAlloc=20 CPUTot=20 CPULoad=20.01
+   AvailableFeatures=rack-5,20CPUs,m630,e5-2640v4,intel,avx,avx2
+   ActiveFeatures=rack-5,20CPUs,m630,e5-2640v4,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.173 NodeHostName=compute-5-5 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=96404 AllocMem=77824 FreeMem=72069 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=ALLOCATED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,owners 
+   BootTime=2023-09-07T10:08:34 SlurmdStartTime=2023-09-07T10:26:56
+   CfgTRES=cpu=20,mem=96404M,billing=43
+   AllocTRES=cpu=20,mem=76G
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-5-6 Arch=x86_64 CoresPerSocket=10 
+   CPUAlloc=13 CPUTot=20 CPULoad=13.08
+   AvailableFeatures=rack-5,20CPUs,m630,e5-2640v4,intel,avx,avx2
+   ActiveFeatures=rack-5,20CPUs,m630,e5-2640v4,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.172 NodeHostName=compute-5-6 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=128658 AllocMem=118784 FreeMem=60528 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=MIXED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,owners,highmem 
+   BootTime=2023-07-06T10:32:03 SlurmdStartTime=2023-09-07T10:26:57
+   CfgTRES=cpu=20,mem=128658M,billing=51
+   AllocTRES=cpu=13,mem=116G
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-5-7 Arch=x86_64 CoresPerSocket=24 
+   CPUAlloc=29 CPUTot=48 CPULoad=29.02
+   AvailableFeatures=rack-5,48CPUs,m640,8160,intel,avx,avx2
+   ActiveFeatures=rack-5,48CPUs,m640,8160,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.251 NodeHostName=compute-5-7 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=191908 AllocMem=182272 FreeMem=49363 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=MIXED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,owners 
+   BootTime=2023-08-31T20:59:09 SlurmdStartTime=2023-09-07T10:26:56
+   CfgTRES=cpu=48,mem=191908M,billing=94
+   AllocTRES=cpu=29,mem=178G
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-5-8 Arch=x86_64 CoresPerSocket=24 
+   CPUAlloc=26 CPUTot=48 CPULoad=26.01
+   AvailableFeatures=rack-5,48CPUs,m640,8160,intel,avx,avx2
+   ActiveFeatures=rack-5,48CPUs,m640,8160,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.220 NodeHostName=compute-5-8 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=191844 AllocMem=182272 FreeMem=36200 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=MIXED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,owners 
+   BootTime=2023-07-06T10:32:26 SlurmdStartTime=2023-09-07T10:26:57
+   CfgTRES=cpu=48,mem=191844M,billing=94
+   AllocTRES=cpu=26,mem=178G
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-5-9 Arch=x86_64 CoresPerSocket=12 
+   CPUAlloc=24 CPUTot=24 CPULoad=24.02
+   AvailableFeatures=rack-5,24CPUs,m640,6126,intel,avx,avx2
+   ActiveFeatures=rack-5,24CPUs,m640,6126,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.170 NodeHostName=compute-5-9 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=95146 AllocMem=66560 FreeMem=79924 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=ALLOCATED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,owners 
+   BootTime=2023-07-06T10:31:55 SlurmdStartTime=2023-09-07T10:26:57
+   CfgTRES=cpu=24,mem=95146M,billing=47
+   AllocTRES=cpu=24,mem=65G
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-5-10 Arch=x86_64 CoresPerSocket=12 
+   CPUAlloc=24 CPUTot=24 CPULoad=24.01
+   AvailableFeatures=rack-5,24CPUs,m640,6126,intel,avx,avx2
+   ActiveFeatures=rack-5,24CPUs,m640,6126,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.169 NodeHostName=compute-5-10 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=95082 AllocMem=72704 FreeMem=53650 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=ALLOCATED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,owners 
+   BootTime=2023-07-06T10:32:15 SlurmdStartTime=2023-09-07T10:26:56
+   CfgTRES=cpu=24,mem=95082M,billing=47
+   AllocTRES=cpu=24,mem=71G
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-5-11 Arch=x86_64 CoresPerSocket=12 
+   CPUAlloc=24 CPUTot=24 CPULoad=24.02
+   AvailableFeatures=rack-5,24CPUs,m640,6126,intel,avx,avx2
+   ActiveFeatures=rack-5,24CPUs,m640,6126,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.250 NodeHostName=compute-5-11 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=94916 AllocMem=79872 FreeMem=45593 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=ALLOCATED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,owners 
+   BootTime=2023-07-06T10:33:22 SlurmdStartTime=2023-09-07T10:26:56
+   CfgTRES=cpu=24,mem=94916M,billing=47
+   AllocTRES=cpu=24,mem=78G
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-14-0 Arch=x86_64 CoresPerSocket=64 
+   CPUAlloc=63 CPUTot=64 CPULoad=61.38
+   AvailableFeatures=rack-14,64CPUs,R6515,7713p,amd,avx,avx2
+   ActiveFeatures=rack-14,64CPUs,R6515,7713p,amd,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.233 NodeHostName=compute-14-0 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=257459 AllocMem=46080 FreeMem=233543 Sockets=1 Boards=1
+   MemSpecLimit=8000
+   State=MIXED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,mcubes,main 
+   BootTime=2023-08-31T16:35:56 SlurmdStartTime=2023-09-07T10:26:58
+   CfgTRES=cpu=64,mem=257459M,billing=126
+   AllocTRES=cpu=63,mem=45G
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-14-1 Arch=x86_64 CoresPerSocket=64 
+   CPUAlloc=64 CPUTot=64 CPULoad=64.47
+   AvailableFeatures=rack-14,64CPUs,R6515,7713p,amd,avx,avx2
+   ActiveFeatures=rack-14,64CPUs,R6515,7713p,amd,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.232 NodeHostName=compute-14-1 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=257459 AllocMem=240640 FreeMem=39377 Sockets=1 Boards=1
+   MemSpecLimit=8000
+   State=ALLOCATED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,mcubes,main 
+   BootTime=2023-08-31T16:36:19 SlurmdStartTime=2023-09-07T10:26:57
+   CfgTRES=cpu=64,mem=257459M,billing=126
+   AllocTRES=cpu=64,mem=235G
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-14-2 Arch=x86_64 CoresPerSocket=64 
+   CPUAlloc=58 CPUTot=64 CPULoad=58.04
+   AvailableFeatures=rack-14,64CPUs,R6515,7713p,amd,avx,avx2
+   ActiveFeatures=rack-14,64CPUs,R6515,7713p,amd,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.231 NodeHostName=compute-14-2 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=257459 AllocMem=167936 FreeMem=165212 Sockets=1 Boards=1
+   MemSpecLimit=8000
+   State=MIXED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,mcubes,main 
+   BootTime=2023-08-31T16:37:00 SlurmdStartTime=2023-09-07T10:26:58
+   CfgTRES=cpu=64,mem=257459M,billing=126
+   AllocTRES=cpu=58,mem=164G
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-14-3 Arch=x86_64 CoresPerSocket=64 
+   CPUAlloc=50 CPUTot=64 CPULoad=50.02
+   AvailableFeatures=rack-14,64CPUs,R6515,7713p,amd,avx,avx2
+   ActiveFeatures=rack-14,64CPUs,R6515,7713p,amd,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.230 NodeHostName=compute-14-3 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=257459 AllocMem=102400 FreeMem=219887 Sockets=1 Boards=1
+   MemSpecLimit=8000
+   State=MIXED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,mcubes,main 
+   BootTime=2023-08-31T16:38:05 SlurmdStartTime=2023-09-07T10:26:57
+   CfgTRES=cpu=64,mem=257459M,billing=126
+   AllocTRES=cpu=50,mem=100G
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-14-4 Arch=x86_64 CoresPerSocket=64 
+   CPUAlloc=64 CPUTot=64 CPULoad=65.37
+   AvailableFeatures=rack-14,64CPUs,R6515,7713p,amd,avx,avx2
+   ActiveFeatures=rack-14,64CPUs,R6515,7713p,amd,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.193 NodeHostName=compute-14-4 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=257459 AllocMem=240640 FreeMem=39267 Sockets=1 Boards=1
+   MemSpecLimit=8000
+   State=ALLOCATED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,mcubes,main 
+   BootTime=2023-08-31T16:38:52 SlurmdStartTime=2023-09-07T10:26:57
+   CfgTRES=cpu=64,mem=257459M,billing=126
+   AllocTRES=cpu=64,mem=235G
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-14-5 Arch=x86_64 CoresPerSocket=64 
+   CPUAlloc=0 CPUTot=64 CPULoad=0.01
+   AvailableFeatures=rack-14,64CPUs,R6515,7713p,amd,avx,avx2
+   ActiveFeatures=rack-14,64CPUs,R6515,7713p,amd,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.192 NodeHostName=compute-14-5 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=257459 AllocMem=0 FreeMem=240250 Sockets=1 Boards=1
+   MemSpecLimit=8000
+   State=IDLE ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,mcubes,main 
+   BootTime=2023-08-31T16:36:15 SlurmdStartTime=2023-09-07T10:26:57
+   CfgTRES=cpu=64,mem=257459M,billing=126
+   AllocTRES=
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-16-0 Arch=x86_64 CoresPerSocket=64 
+   CPUAlloc=0 CPUTot=64 CPULoad=0.01
+   AvailableFeatures=rack-16,64CPUs,R6515,7713p,amd,avx,avx2
+   ActiveFeatures=rack-16,64CPUs,R6515,7713p,amd,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.191 NodeHostName=compute-16-0 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=257459 AllocMem=0 FreeMem=241913 Sockets=1 Boards=1
+   MemSpecLimit=8000
+   State=IDLE ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,mcubes,main 
+   BootTime=2023-08-31T16:36:40 SlurmdStartTime=2023-09-07T10:26:57
+   CfgTRES=cpu=64,mem=257459M,billing=126
+   AllocTRES=
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-16-1 Arch=x86_64 CoresPerSocket=64 
+   CPUAlloc=0 CPUTot=64 CPULoad=0.01
+   AvailableFeatures=rack-16,64CPUs,R6515,7713p,amd,avx,avx2
+   ActiveFeatures=rack-16,64CPUs,R6515,7713p,amd,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.190 NodeHostName=compute-16-1 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=257459 AllocMem=0 FreeMem=245716 Sockets=1 Boards=1
+   MemSpecLimit=8000
+   State=IDLE ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,mcubes,main 
+   BootTime=2023-08-31T16:41:08 SlurmdStartTime=2023-09-07T10:26:57
+   CfgTRES=cpu=64,mem=257459M,billing=126
+   AllocTRES=
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-16-2 Arch=x86_64 CoresPerSocket=64 
+   CPUAlloc=0 CPUTot=64 CPULoad=0.01
+   AvailableFeatures=rack-16,64CPUs,R6515,7713p,amd,avx,avx2
+   ActiveFeatures=rack-16,64CPUs,R6515,7713p,amd,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.189 NodeHostName=compute-16-2 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=257459 AllocMem=0 FreeMem=245622 Sockets=1 Boards=1
+   MemSpecLimit=8000
+   State=IDLE ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,mcubes,main 
+   BootTime=2023-08-31T16:41:35 SlurmdStartTime=2023-09-07T10:26:57
+   CfgTRES=cpu=64,mem=257459M,billing=126
+   AllocTRES=
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-16-3 Arch=x86_64 CoresPerSocket=64 
+   CPUAlloc=0 CPUTot=64 CPULoad=0.01
+   AvailableFeatures=rack-16,64CPUs,R6515,7713p,amd,avx,avx2
+   ActiveFeatures=rack-16,64CPUs,R6515,7713p,amd,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.188 NodeHostName=compute-16-3 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=257459 AllocMem=0 FreeMem=243475 Sockets=1 Boards=1
+   MemSpecLimit=8000
+   State=IDLE ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,mcubes,main 
+   BootTime=2023-08-31T16:39:05 SlurmdStartTime=2023-09-07T10:26:57
+   CfgTRES=cpu=64,mem=257459M,billing=126
+   AllocTRES=
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-16-4 Arch=x86_64 CoresPerSocket=64 
+   CPUAlloc=0 CPUTot=64 CPULoad=0.01
+   AvailableFeatures=rack-16,64CPUs,R6515,7713p,amd,avx,avx2
+   ActiveFeatures=rack-16,64CPUs,R6515,7713p,amd,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.187 NodeHostName=compute-16-4 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=257459 AllocMem=0 FreeMem=232290 Sockets=1 Boards=1
+   MemSpecLimit=8000
+   State=IDLE ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,mcubes,main 
+   BootTime=2023-08-31T16:43:08 SlurmdStartTime=2023-09-07T10:26:57
+   CfgTRES=cpu=64,mem=257459M,billing=126
+   AllocTRES=
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-16-5 Arch=x86_64 CoresPerSocket=64 
+   CPUAlloc=0 CPUTot=64 CPULoad=0.01
+   AvailableFeatures=rack-16,64CPUs,R6515,7713p,amd,avx,avx2
+   ActiveFeatures=rack-16,64CPUs,R6515,7713p,amd,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.186 NodeHostName=compute-16-5 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=257459 AllocMem=0 FreeMem=245590 Sockets=1 Boards=1
+   MemSpecLimit=8000
+   State=IDLE ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,mcubes,main 
+   BootTime=2023-09-12T13:25:12 SlurmdStartTime=2023-09-12T13:26:02
+   CfgTRES=cpu=64,mem=257459M,billing=126
+   AllocTRES=
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-17-0 Arch=x86_64 CoresPerSocket=8 
+   CPUAlloc=0 CPUTot=16 CPULoad=0.01
+   AvailableFeatures=rack-17,16CPUs,R640,6134,intel,avx,avx2
+   ActiveFeatures=rack-17,16CPUs,R640,6134,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.216 NodeHostName=compute-17-0 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=128344 AllocMem=0 FreeMem=98494 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=IDLE ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,owners 
+   BootTime=2023-07-06T10:38:21 SlurmdStartTime=2023-09-07T10:26:56
+   CfgTRES=cpu=16,mem=128344M,billing=47
+   AllocTRES=
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-17-1 Arch=x86_64 CoresPerSocket=8 
+   CPUAlloc=0 CPUTot=16 CPULoad=0.01
+   AvailableFeatures=rack-17,16CPUs,R640,6134,intel,avx,avx2
+   ActiveFeatures=rack-17,16CPUs,R640,6134,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.252 NodeHostName=compute-17-1 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=128344 AllocMem=0 FreeMem=79022 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=IDLE ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,owners 
+   BootTime=2023-08-01T08:36:25 SlurmdStartTime=2023-09-07T10:26:56
+   CfgTRES=cpu=16,mem=128344M,billing=47
+   AllocTRES=
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-17-2 Arch=x86_64 CoresPerSocket=8 
+   CPUAlloc=0 CPUTot=16 CPULoad=0.01
+   AvailableFeatures=rack-17,16CPUs,R640,6134,intel,avx,avx2
+   ActiveFeatures=rack-17,16CPUs,R640,6134,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.212 NodeHostName=compute-17-2 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=128344 AllocMem=0 FreeMem=62975 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=IDLE ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,owners 
+   BootTime=2023-08-01T08:36:28 SlurmdStartTime=2023-09-07T10:26:56
+   CfgTRES=cpu=16,mem=128344M,billing=47
+   AllocTRES=
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-17-3 Arch=x86_64 CoresPerSocket=8 
+   CPUAlloc=0 CPUTot=16 CPULoad=0.01
+   AvailableFeatures=rack-17,16CPUs,R640,6134,intel,avx,avx2
+   ActiveFeatures=rack-17,16CPUs,R640,6134,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.211 NodeHostName=compute-17-3 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=128344 AllocMem=0 FreeMem=63062 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=IDLE ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,owners 
+   BootTime=2023-08-01T08:36:27 SlurmdStartTime=2023-09-07T10:26:56
+   CfgTRES=cpu=16,mem=128344M,billing=47
+   AllocTRES=
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-17-4 Arch=x86_64 CoresPerSocket=8 
+   CPUAlloc=0 CPUTot=16 CPULoad=0.01
+   AvailableFeatures=rack-17,16CPUs,R640,6134,intel,avx,avx2
+   ActiveFeatures=rack-17,16CPUs,R640,6134,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.210 NodeHostName=compute-17-4 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=128344 AllocMem=0 FreeMem=50856 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=IDLE ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,owners 
+   BootTime=2023-08-01T08:36:39 SlurmdStartTime=2023-09-07T10:26:56
+   CfgTRES=cpu=16,mem=128344M,billing=47
+   AllocTRES=
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-17-5 Arch=x86_64 CoresPerSocket=8 
+   CPUAlloc=0 CPUTot=16 CPULoad=0.01
+   AvailableFeatures=rack-17,16CPUs,R640,6134,intel,avx,avx2
+   ActiveFeatures=rack-17,16CPUs,R640,6134,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.209 NodeHostName=compute-17-5 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=128344 AllocMem=0 FreeMem=107331 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=IDLE ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,owners 
+   BootTime=2023-08-01T08:36:40 SlurmdStartTime=2023-09-07T10:26:56
+   CfgTRES=cpu=16,mem=128344M,billing=47
+   AllocTRES=
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-17-6 Arch=x86_64 CoresPerSocket=8 
+   CPUAlloc=1 CPUTot=16 CPULoad=1.01
+   AvailableFeatures=rack-17,16CPUs,R640,6134,intel,avx,avx2
+   ActiveFeatures=rack-17,16CPUs,R640,6134,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.208 NodeHostName=compute-17-6 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=128344 AllocMem=65536 FreeMem=84053 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=MIXED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,owners 
+   BootTime=2023-08-01T08:36:38 SlurmdStartTime=2023-09-07T10:26:56
+   CfgTRES=cpu=16,mem=128344M,billing=47
+   AllocTRES=cpu=1,mem=64G
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-17-7 Arch=x86_64 CoresPerSocket=8 
+   CPUAlloc=11 CPUTot=16 CPULoad=11.03
+   AvailableFeatures=rack-17,16CPUs,R640,6134,intel,avx,avx2
+   ActiveFeatures=rack-17,16CPUs,R640,6134,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.207 NodeHostName=compute-17-7 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=128344 AllocMem=86016 FreeMem=92545 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=MIXED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,owners 
+   BootTime=2023-08-01T08:36:27 SlurmdStartTime=2023-09-07T10:26:57
+   CfgTRES=cpu=16,mem=128344M,billing=47
+   AllocTRES=cpu=11,mem=84G
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-17-8 Arch=x86_64 CoresPerSocket=8 
+   CPUAlloc=0 CPUTot=16 CPULoad=1.49
+   AvailableFeatures=rack-17,16CPUs,R640,6134,intel,avx,avx2
+   ActiveFeatures=rack-17,16CPUs,R640,6134,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.206 NodeHostName=compute-17-8 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=128344 AllocMem=0 FreeMem=26956 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=IDLE ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,owners 
+   BootTime=2023-08-01T08:36:59 SlurmdStartTime=2023-09-07T10:26:56
+   CfgTRES=cpu=16,mem=128344M,billing=47
+   AllocTRES=
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-17-9 Arch=x86_64 CoresPerSocket=8 
+   CPUAlloc=16 CPUTot=16 CPULoad=16.02
+   AvailableFeatures=rack-17,16CPUs,R640,6134,intel,avx,avx2
+   ActiveFeatures=rack-17,16CPUs,R640,6134,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.205 NodeHostName=compute-17-9 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=128344 AllocMem=108544 FreeMem=88258 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=ALLOCATED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,owners 
+   BootTime=2023-08-01T08:36:51 SlurmdStartTime=2023-09-07T10:26:56
+   CfgTRES=cpu=16,mem=128344M,billing=47
+   AllocTRES=cpu=16,mem=106G
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-17-10 Arch=x86_64 CoresPerSocket=12 
+   CPUAlloc=11 CPUTot=24 CPULoad=11.01
+   AvailableFeatures=rack-17,24CPUs,R640,6126,intel,avx,avx2
+   ActiveFeatures=rack-17,24CPUs,R640,6126,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.204 NodeHostName=compute-17-10 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=128344 AllocMem=116736 FreeMem=51127 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=MIXED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,owners 
+   BootTime=2023-08-01T08:36:23 SlurmdStartTime=2023-09-07T10:26:56
+   CfgTRES=cpu=24,mem=128344M,billing=55
+   AllocTRES=cpu=11,mem=114G
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-17-11 Arch=x86_64 CoresPerSocket=8 
+   CPUAlloc=16 CPUTot=16 CPULoad=16.04
+   AvailableFeatures=rack-17,16CPUs,R640,6134,intel,avx,avx2
+   ActiveFeatures=rack-17,16CPUs,R640,6134,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.203 NodeHostName=compute-17-11 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=128344 AllocMem=114688 FreeMem=40122 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=ALLOCATED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,owners 
+   BootTime=2023-08-01T08:36:39 SlurmdStartTime=2023-09-07T10:26:56
+   CfgTRES=cpu=16,mem=128344M,billing=47
+   AllocTRES=cpu=16,mem=112G
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-20-0 Arch=x86_64 CoresPerSocket=12 
+   CPUAlloc=44 CPUTot=48 CPULoad=40.57
+   AvailableFeatures=rack-20,48CPUs,R920,e7-4860v2,intel,avx
+   ActiveFeatures=rack-20,48CPUs,R920,e7-4860v2,intel,avx
+   Gres=(null)
+   NodeAddr=192.168.0.162 NodeHostName=compute-20-0 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=1031826 AllocMem=752768 FreeMem=25462 Sockets=4 Boards=1
+   MemSpecLimit=8000
+   State=MIXED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,ultrahigh 
+   BootTime=2023-03-18T09:48:47 SlurmdStartTime=2023-09-07T10:26:58
+   CfgTRES=cpu=48,mem=1031826M,billing=299
+   AllocTRES=cpu=44,mem=752768M
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-20-1 Arch=x86_64 CoresPerSocket=64 
+   CPUAlloc=0 CPUTot=64 CPULoad=0.01
+   AvailableFeatures=rack-20,64CPUs,R6515,7713p,amd,avx,avx2
+   ActiveFeatures=rack-20,64CPUs,R6515,7713p,amd,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.246 NodeHostName=compute-20-1 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=257460 AllocMem=0 FreeMem=244623 Sockets=1 Boards=1
+   MemSpecLimit=8000
+   State=IDLE ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,mcubes,main 
+   BootTime=2023-07-06T10:02:31 SlurmdStartTime=2023-09-07T10:26:57
+   CfgTRES=cpu=64,mem=257460M,billing=126
+   AllocTRES=
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-20-2 Arch=x86_64 CoresPerSocket=64 
+   CPUAlloc=27 CPUTot=64 CPULoad=27.01
+   AvailableFeatures=rack-20,64CPUs,R6515,7713p,amd,avx,avx2
+   ActiveFeatures=rack-20,64CPUs,R6515,7713p,amd,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.245 NodeHostName=compute-20-2 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=257460 AllocMem=221184 FreeMem=188803 Sockets=1 Boards=1
+   MemSpecLimit=8000
+   State=MIXED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,mcubes,main 
+   BootTime=2023-07-06T10:37:27 SlurmdStartTime=2023-09-07T10:26:57
+   CfgTRES=cpu=64,mem=257460M,billing=126
+   AllocTRES=cpu=27,mem=216G
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-20-3 Arch=x86_64 CoresPerSocket=64 
+   CPUAlloc=22 CPUTot=64 CPULoad=22.01
+   AvailableFeatures=rack-20,64CPUs,R6515,7713p,amd,avx,avx2
+   ActiveFeatures=rack-20,64CPUs,R6515,7713p,amd,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.244 NodeHostName=compute-20-3 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=257460 AllocMem=180224 FreeMem=214584 Sockets=1 Boards=1
+   MemSpecLimit=8000
+   State=MIXED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,mcubes,main 
+   BootTime=2023-07-06T10:37:44 SlurmdStartTime=2023-09-07T10:26:58
+   CfgTRES=cpu=64,mem=257460M,billing=126
+   AllocTRES=cpu=22,mem=176G
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-20-4 Arch=x86_64 CoresPerSocket=22 
+   CPUAlloc=32 CPUTot=88 CPULoad=0.97
+   AvailableFeatures=rack-20,88CPUs,R830,e5-4669v4,intel,avx,avx2
+   ActiveFeatures=rack-20,88CPUs,R830,e5-4669v4,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.171 NodeHostName=compute-20-4 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=1031763 AllocMem=102400 FreeMem=649060 Sockets=4 Boards=1
+   MemSpecLimit=8000
+   State=MIXED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,ultrahigh 
+   BootTime=2023-03-18T09:33:31 SlurmdStartTime=2023-09-07T10:26:58
+   CfgTRES=cpu=88,mem=1031763M,billing=339
+   AllocTRES=cpu=32,mem=100G
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-20-7 Arch=x86_64 CoresPerSocket=28 
+   CPUAlloc=0 CPUTot=56 CPULoad=0.01
+   AvailableFeatures=rack-20,56CPUs,R740xd,8180,intel,avx,avx2
+   ActiveFeatures=rack-20,56CPUs,R740xd,8180,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.167 NodeHostName=compute-20-7 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=772244 AllocMem=0 FreeMem=157550 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=IDLE ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,mh1,main 
+   BootTime=2022-12-16T15:12:48 SlurmdStartTime=2023-09-07T10:26:58
+   CfgTRES=cpu=56,mem=772244M,billing=244
+   AllocTRES=
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-20-8 Arch=x86_64 CoresPerSocket=24 
+   CPUAlloc=0 CPUTot=48 CPULoad=0.01
+   AvailableFeatures=rack-20,48CPUs,R740xd,8160,intel,avx,avx2
+   ActiveFeatures=rack-20,48CPUs,R740xd,8160,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.229 NodeHostName=compute-20-8 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=191686 AllocMem=0 FreeMem=162263 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=IDLE ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,twater,main 
+   BootTime=2022-02-03T11:11:16 SlurmdStartTime=2023-09-07T10:26:57
+   CfgTRES=cpu=48,mem=191686M,billing=94
+   AllocTRES=
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-20-9 Arch=x86_64 CoresPerSocket=64 
+   CPUAlloc=0 CPUTot=128 CPULoad=0.01
+   AvailableFeatures=rack-20,128CPUs,R7525,7742,amd,avx,avx2
+   ActiveFeatures=rack-20,128CPUs,R7525,7742,amd,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.225 NodeHostName=compute-20-9 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=1031528 AllocMem=0 FreeMem=1018086 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=IDLE ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,mh1,main 
+   BootTime=2023-07-24T09:04:29 SlurmdStartTime=2023-09-07T10:26:59
+   CfgTRES=cpu=128,mem=1031528M,billing=379
+   AllocTRES=
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-20-10 Arch=x86_64 CoresPerSocket=64 
+   CPUAlloc=0 CPUTot=128 CPULoad=0.01
+   AvailableFeatures=rack-20,128CPUs,R7525,7742,amd,avx,avx2
+   ActiveFeatures=rack-20,128CPUs,R7525,7742,amd,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.224 NodeHostName=compute-20-10 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=1031530 AllocMem=0 FreeMem=977267 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=IDLE ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,mh1,main 
+   BootTime=2023-08-16T15:38:13 SlurmdStartTime=2023-09-07T10:26:59
+   CfgTRES=cpu=128,mem=1031530M,billing=379
+   AllocTRES=
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-20-11 Arch=x86_64 CoresPerSocket=24 
+   CPUAlloc=16 CPUTot=48 CPULoad=16.56
+   AvailableFeatures=rack-20,48CPUs,R7525,7413,amd,avx,avx2
+   ActiveFeatures=rack-20,48CPUs,R7525,7413,amd,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.253 NodeHostName=compute-20-11 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=2063681 AllocMem=1024000 FreeMem=1746502 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=MIXED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,ultrahigh 
+   BootTime=2023-09-17T02:00:51 SlurmdStartTime=2023-09-17T02:01:46
+   CfgTRES=cpu=48,mem=2063681M,billing=551
+   AllocTRES=cpu=16,mem=1000G
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-20-12 Arch=x86_64 CoresPerSocket=24 
+   CPUAlloc=12 CPUTot=48 CPULoad=11.98
+   AvailableFeatures=rack-20,48CPUs,R7525,7443,amd,avx,avx2
+   ActiveFeatures=rack-20,48CPUs,R7525,7443,amd,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.243 NodeHostName=compute-20-12 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=1031555 AllocMem=104000 FreeMem=517989 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=MIXED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,ultrahigh 
+   BootTime=2023-07-22T11:42:54 SlurmdStartTime=2023-09-07T10:26:57
+   CfgTRES=cpu=48,mem=1031555M,billing=299
+   AllocTRES=cpu=12,mem=104000M
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-20-13 Arch=x86_64 CoresPerSocket=32 
+   CPUAlloc=13 CPUTot=64 CPULoad=1.04
+   AvailableFeatures=rack-20,64CPUs,R7525,7543,amd,avx,avx2
+   ActiveFeatures=rack-20,64CPUs,R7525,7543,amd,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.219 NodeHostName=compute-20-13 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=1031549 AllocMem=410624 FreeMem=557940 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=MIXED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,ultrahigh 
+   BootTime=2023-07-06T10:41:01 SlurmdStartTime=2023-09-07T10:26:57
+   CfgTRES=cpu=64,mem=1031549M,billing=315
+   AllocTRES=cpu=13,mem=401G
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-20-14 Arch=x86_64 CoresPerSocket=8 
+   CPUAlloc=16 CPUTot=16 CPULoad=4.73
+   AvailableFeatures=rack-20,16CPUs,R6525,7252,amd,avx,avx2
+   ActiveFeatures=rack-20,16CPUs,R6525,7252,amd,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.249 NodeHostName=compute-20-14 Version=20.11.8
+   OS=Linux 3.10.0-1160.6.1.el7.x86_64 #1 SMP Tue Nov 17 13:59:11 UTC 2020 
+   RealMemory=1031417 AllocMem=1022976 FreeMem=693909 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=ALLOCATED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,ultrahigh 
+   BootTime=2023-07-06T10:41:43 SlurmdStartTime=2023-09-07T10:26:57
+   CfgTRES=cpu=16,mem=1031417M,billing=267
+   AllocTRES=cpu=16,mem=999G
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-20-15 Arch=x86_64 CoresPerSocket=24 
+   CPUAlloc=0 CPUTot=48 CPULoad=12.29
+   AvailableFeatures=rack-20,48CPUs,R6525,7352,amd,avx,avx2
+   ActiveFeatures=rack-20,48CPUs,R6525,7352,amd,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.221 NodeHostName=compute-20-15 Version=20.11.8
+   OS=Linux 3.10.0-1160.6.1.el7.x86_64 #1 SMP Tue Nov 17 13:59:11 UTC 2020 
+   RealMemory=515347 AllocMem=0 FreeMem=198401 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=IDLE ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,highmem 
+   BootTime=2023-07-09T09:04:40 SlurmdStartTime=2023-09-07T10:26:57
+   CfgTRES=cpu=48,mem=515347M,billing=173
+   AllocTRES=
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=compute-20-16 Arch=x86_64 CoresPerSocket=24 
+   CPUAlloc=3 CPUTot=48 CPULoad=7.24
+   AvailableFeatures=rack-20,48CPUs,R750,5318n,intel,avx,avx2
+   ActiveFeatures=rack-20,48CPUs,R750,5318n,intel,avx,avx2
+   Gres=(null)
+   NodeAddr=192.168.0.217 NodeHostName=compute-20-16 Version=20.11.8
+   OS=Linux 3.10.0-1160.6.1.el7.x86_64 #1 SMP Tue Nov 17 13:59:11 UTC 2020 
+   RealMemory=257240 AllocMem=196608 FreeMem=12105 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=MIXED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,main,owners 
+   BootTime=2023-06-21T15:51:37 SlurmdStartTime=2023-09-07T10:26:58
+   CfgTRES=cpu=48,mem=257240M,billing=110
+   AllocTRES=cpu=3,mem=192G
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=gpu-0-0 Arch=x86_64 CoresPerSocket=12 
+   CPUAlloc=16 CPUTot=24 CPULoad=16.10
+   AvailableFeatures=rack-0,24CPUs,R740,4116,intel,avx,avx2
+   ActiveFeatures=rack-0,24CPUs,R740,4116,intel,avx,avx2
+   Gres=gpu:v100:1(S:0),gpu:v100-32:1(S:1)
+   NodeAddr=192.168.0.254 NodeHostName=gpu-0-0 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=289362 AllocMem=20480 FreeMem=273362 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=MIXED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,gpu,gpu_mewes 
+   BootTime=2023-07-06T10:40:35 SlurmdStartTime=2023-09-07T10:26:57
+   CfgTRES=cpu=24,mem=289362M,billing=98,gres/gpu=2
+   AllocTRES=cpu=16,mem=20G,gres/gpu=2
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=gpu-0-1 Arch=x86_64 CoresPerSocket=64 
+   CPUAlloc=0 CPUTot=64 CPULoad=0.01
+   AvailableFeatures=rack-0,64CPUs,R7515,7h12,amd,avx,avx2
+   ActiveFeatures=rack-0,64CPUs,R7515,7h12,amd,avx,avx2
+   Gres=gpu:t4:1(S:0)
+   NodeAddr=192.168.0.248 NodeHostName=gpu-0-1 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=515478 AllocMem=0 FreeMem=508382 Sockets=1 Boards=1
+   MemSpecLimit=8000
+   State=IDLE ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,gpu,mcubes 
+   BootTime=2023-09-25T08:34:29 SlurmdStartTime=2023-09-25T08:35:24
+   CfgTRES=cpu=64,mem=515478M,billing=191,gres/gpu=1
+   AllocTRES=
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=gpu-0-2 Arch=x86_64 CoresPerSocket=64 
+   CPUAlloc=16 CPUTot=128 CPULoad=16.01
+   AvailableFeatures=rack-0,128CPUs,R7525,7713,amd,avx,avx2
+   ActiveFeatures=rack-0,128CPUs,R7525,7713,amd,avx,avx2
+   Gres=gpu:a100-80:1(S:0-1)
+   NodeAddr=192.168.0.239 NodeHostName=gpu-0-2 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=1031543 AllocMem=60800 FreeMem=1013835 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=MIXED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,gpu,mh1 
+   BootTime=2023-07-24T09:02:57 SlurmdStartTime=2023-09-07T10:26:58
+   CfgTRES=cpu=128,mem=1031543M,billing=381,gres/gpu=1
+   AllocTRES=cpu=16,mem=60800M
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=gpu-0-3 Arch=x86_64 CoresPerSocket=64 
+   CPUAlloc=0 CPUTot=128 CPULoad=0.01
+   AvailableFeatures=rack-0,128CPUs,R7525,7713,amd,avx,avx2
+   ActiveFeatures=rack-0,128CPUs,R7525,7713,amd,avx,avx2
+   Gres=gpu:a100-80:1(S:0-1)
+   NodeAddr=192.168.0.223 NodeHostName=gpu-0-3 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=1031543 AllocMem=0 FreeMem=1018372 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=IDLE ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,gpu,mh1 
+   BootTime=2023-07-24T09:03:29 SlurmdStartTime=2023-09-07T10:26:58
+   CfgTRES=cpu=128,mem=1031543M,billing=381,gres/gpu=1
+   AllocTRES=
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=gpu-0-4 Arch=x86_64 CoresPerSocket=64 
+   CPUAlloc=0 CPUTot=128 CPULoad=0.02
+   AvailableFeatures=rack-0,128CPUs,R7525,7713,amd,avx,avx2
+   ActiveFeatures=rack-0,128CPUs,R7525,7713,amd,avx,avx2
+   Gres=gpu:a100-80:1(S:0-1)
+   NodeAddr=192.168.0.222 NodeHostName=gpu-0-4 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=1031543 AllocMem=0 FreeMem=1018434 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=IDLE ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,gpu,twater 
+   BootTime=2023-07-06T10:42:31 SlurmdStartTime=2023-09-07T10:26:58
+   CfgTRES=cpu=128,mem=1031543M,billing=381,gres/gpu=1
+   AllocTRES=
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
+NodeName=gpu-0-5 Arch=x86_64 CoresPerSocket=32 
+   CPUAlloc=56 CPUTot=64 CPULoad=55.58
+   AvailableFeatures=rack-0,64CPUs,R750xa,6338,intel,avx,avx2
+   ActiveFeatures=rack-0,64CPUs,R750xa,6338,intel,avx,avx2
+   Gres=gpu:a100-80:4(S:0-1)
+   NodeAddr=192.168.0.218 NodeHostName=gpu-0-5 Version=20.11.8
+   OS=Linux 3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017 
+   RealMemory=257240 AllocMem=183040 FreeMem=72759 Sockets=2 Boards=1
+   MemSpecLimit=8000
+   State=MIXED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=CLUSTER,WHEEL,gpu,mlee91 
+   BootTime=2023-02-02T11:25:10 SlurmdStartTime=2023-09-07T10:26:57
+   CfgTRES=cpu=64,mem=257240M,billing=134,gres/gpu=4
+   AllocTRES=cpu=56,mem=183040M,gres/gpu=2
+   CapWatts=n/a
+   CurrentWatts=0 AveWatts=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   Comment=(null)
+
