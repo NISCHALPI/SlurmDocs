@@ -19,7 +19,7 @@ import os
 import warnings
 from getpass import getpass
 
-import paramiko
+import paramiko  # type: ignore
 
 __all__ = ['SSHSessionAuth']
 
@@ -136,9 +136,6 @@ class SSHSessionAuth:
         assert port > 0 and port < 65535, 'Invalid port number'
         self.port = port
 
-        # Create a session
-        self.session = self._create_session()
-
     def _create_session(self) -> paramiko.SSHClient:
         """Create a session with the server."""
         try:
@@ -170,3 +167,26 @@ class SSHSessionAuth:
             print('Error: %s' % e)
 
         return ssh_client
+
+    def is_connected(self) -> bool:
+        """Check if the session is connected."""
+        # If the session is not created, return False
+        if not hasattr(self, 'session'):
+            return False
+
+        return self.session.get_transport().is_active()
+
+    def connect(self) -> None:
+        """Connect to the remote server."""
+        # connection Guard
+        if not self.is_connected():
+            self.session = self._create_session()
+
+        return
+
+    def close(self) -> None:
+        """Close the session."""
+        if self.is_connected():
+            self.session.close()
+
+        return
