@@ -99,7 +99,7 @@ class SlurmClusterDatabase(BaseDatabase):
             self.db_path = db_path
 
         # Attach to DB path
-        self.db_path = self.db_path / db_name
+        self.db_path = self.db_path.joinpath(db_name)
 
         # If path does not exist, create it
         if not self.db_path.exists():
@@ -147,7 +147,7 @@ class SlurmClusterDatabase(BaseDatabase):
         if not (self.db_path / self._node_db_name).exists():
             (self.db_path / self._node_db_name).mkdir(parents=True)
 
-    def __delete(self, path: str | Path) -> None:
+    def _delete(self, path: str | Path) -> None:
         """Delete a directory and its contents.
 
         Args:
@@ -169,8 +169,9 @@ class SlurmClusterDatabase(BaseDatabase):
     def delete(self) -> None:
         """Delete the database and its subdirectories."""
         # Delete subdirectories
-        self.__delete(self.db_path / self._cpu_db_name)
-        self.__delete(self.db_path / self._node_db_name)
+        self._delete(self.db_path / self._cpu_db_name)
+        self._delete(self.db_path / self._node_db_name)
+
 
     def remove(self, data: dict) -> None:
         """Remove a specific data entry from the database.
@@ -182,9 +183,9 @@ class SlurmClusterDatabase(BaseDatabase):
         _, filepath = self._key_filepath(data)
 
         # Delete file
-        self.__delete(filepath)
+        self._delete(filepath)
 
-    def check_integrity(self) -> bool:
+    def check_integrity(self, supress: bool = False) -> bool:
         """Check the integrity of the database.
 
         Returns:
@@ -192,11 +193,13 @@ class SlurmClusterDatabase(BaseDatabase):
         """
         # Check if subdirectories are empty or not
         if len(os.listdir(self.db_path / self._cpu_db_name)) == 0:
-            warnings.warn(f"CPU database {self.db_path} is empty.")
+            if not supress:
+                warnings.warn(f"CPU database {self.db_path} is empty.")
             return False
 
         if len(os.listdir(self.db_path / self._node_db_name)) != 1:
-            warnings.warn(f"No node data found in {self.db_path}.")
+            if not supress:
+                warnings.warn(f"Node database {self.db_path} is empty.")
             return False
 
         return True
