@@ -42,7 +42,7 @@ from pathlib import Path
 from ..session.ssh_session import SSHSessionAuth
 from .icollecter import ICollecter
 
-__all__ = ['AbstractCollecter', "Collecter"]
+__all__ = ["AbstractCollecter", "Collecter"]
 
 
 class AbstractCollecter(ABC):
@@ -108,7 +108,7 @@ class AbstractCollecter(ABC):
         data = self._icollecter(session, **kwargs)
 
         # Save the data to a text file with current timestamp
-        if hasattr(self, '_save_dir'):
+        if hasattr(self, "_save_dir"):
             if filename is None:
                 raise ValueError(
                     "filename must be specified when save_dir is specified."
@@ -133,7 +133,7 @@ class AbstractCollecter(ABC):
         Returns:
             str: String representation of the object.
         """
-        if hasattr(self, '_save_dir'):
+        if hasattr(self, "_save_dir"):
             return f"{self.__class__.__name__}(icollecter={self._icollecter}, save_dir={self._save_dir})"
 
         return f"{self.__class__.__name__}(icollecter={self._icollecter})"

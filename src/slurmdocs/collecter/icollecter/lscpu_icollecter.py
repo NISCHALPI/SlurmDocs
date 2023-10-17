@@ -43,7 +43,7 @@ from slurmdocs.session.ssh_session import SSHSessionAuth
 
 from .icollecter import ICollecter
 
-__all__ = ['IlscpuCollecter']
+__all__ = ["IlscpuCollecter"]
 
 
 class IlscpuCollecter(ICollecter):
@@ -84,7 +84,7 @@ class IlscpuCollecter(ICollecter):
         node = kwargs["node"]
 
         # Slurm srun command to run lscpu on the node
-        cmd = f'srun -n 1 -c 1 -p {partition} --qos {qos} -J {node[-1:-5]} --nodelist={node} lscpu'
+        cmd = f"srun -n 1 -c 1 -p {partition} --qos {qos} -J {node[-1:-5]} --nodelist={node} lscpu"
 
         # Run the command
         try:
@@ -93,7 +93,7 @@ class IlscpuCollecter(ICollecter):
             )
         except TimeoutError:
             session.session.exec_command(
-                f'scancel -n {node[-1:-5]} -u {session.remote_username}'
+                f"scancel -n {node[-1:-5]} -u {session.remote_username}"
             )
             raise TimeoutError(
                 f"""Timeout when running the command: {cmd}.
@@ -102,12 +102,12 @@ class IlscpuCollecter(ICollecter):
             )
 
         # Read the output
-        stdout = stdout.read().decode('utf-8')
+        stdout = stdout.read().decode("utf-8")
 
         # Check if there is any output
         if len(stdout) == 0:
             raise ValueError(
-                f'No output from lscpu command. Check if the node {node} is available under partition : {partition} and QOS: {qos}.'
+                f"No output from lscpu command. Check if the node {node} is available under partition : {partition} and QOS: {qos}."
             )
 
         return stdout

@@ -34,7 +34,7 @@ import pandas as pd
 
 from .istat import Istat
 
-__all__ = ['IcpuStats', "IgpuStats"]
+__all__ = ["IcpuStats", "IgpuStats"]
 
 
 class IcpuStats(Istat):
@@ -79,18 +79,18 @@ class IcpuStats(Istat):
     # Source : https://en.wikichip.org/wiki/flops
     # Intel Instruction set to the number of flops per cycle (SP, DP)
     intel_instruction_set_sp_flops_dp_flops = {
-        'sse': (8, 4),
-        'avx': (16, 8),
-        'avx2': (32, 16),
-        'avx512': (64, 32),
+        "sse": (8, 4),
+        "avx": (16, 8),
+        "avx2": (32, 16),
+        "avx512": (64, 32),
     }
 
     # AMD Instruction set to the number of flops per cycle (SP, DP)
     amd_instruction_set_sp_flops_dp_flops = {
-        'sse': (8, 4),
-        'avx': (16, 8),
-        'avx2': (16, 8),
-        'avx512': (32, 16),
+        "sse": (8, 4),
+        "avx": (16, 8),
+        "avx2": (16, 8),
+        "avx512": (32, 16),
     }
 
     def __init__(self) -> None:
@@ -113,44 +113,44 @@ class IcpuStats(Istat):
             ValueError: If the CPU vendor is not supported or if the instruction set is not found in CPU flags.
         """
         # Check CPU Model and Vendor
-        is_intel = cpu_info['Vendor ID'] == 'GenuineIntel'
+        is_intel = cpu_info["Vendor ID"] == "GenuineIntel"
 
         # if non-Intel, check AMD or raise an error
         if not is_intel:
-            if cpu_info['Vendor ID'] != 'AuthenticAMD':
+            if cpu_info["Vendor ID"] != "AuthenticAMD":
                 raise ValueError(
-                    'CPU Vendor not supported. Only Intel and AMD are supported.'
+                    "CPU Vendor not supported. Only Intel and AMD are supported."
                 )
 
         # Check Flags in the following order 'avx512', 'avx2', 'avx', 'sse'
-        flags = cpu_info['Flags'].split(' ')
+        flags = cpu_info["Flags"].split(" ")
 
-        if 'avx512' in flags:
+        if "avx512" in flags:
             return (
-                self.intel_instruction_set_sp_flops_dp_flops['avx512'][0]
+                self.intel_instruction_set_sp_flops_dp_flops["avx512"][0]
                 if is_intel
-                else self.amd_instruction_set_sp_flops_dp_flops['avx512'][0]
+                else self.amd_instruction_set_sp_flops_dp_flops["avx512"][0]
             )
 
-        if 'avx2' in flags:
+        if "avx2" in flags:
             return (
-                self.intel_instruction_set_sp_flops_dp_flops['avx2'][0]
+                self.intel_instruction_set_sp_flops_dp_flops["avx2"][0]
                 if is_intel
-                else self.amd_instruction_set_sp_flops_dp_flops['avx2'][0]
+                else self.amd_instruction_set_sp_flops_dp_flops["avx2"][0]
             )
 
-        if 'avx' in flags:
+        if "avx" in flags:
             return (
-                self.intel_instruction_set_sp_flops_dp_flops['avx'][0]
+                self.intel_instruction_set_sp_flops_dp_flops["avx"][0]
                 if is_intel
-                else self.amd_instruction_set_sp_flops_dp_flops['avx'][0]
+                else self.amd_instruction_set_sp_flops_dp_flops["avx"][0]
             )
 
-        if 'sse' in flags:
+        if "sse" in flags:
             return (
-                self.intel_instruction_set_sp_flops_dp_flops['sse'][0]
+                self.intel_instruction_set_sp_flops_dp_flops["sse"][0]
                 if is_intel
-                else self.amd_instruction_set_sp_flops_dp_flops['sse'][0]
+                else self.amd_instruction_set_sp_flops_dp_flops["sse"][0]
             )
 
         raise ValueError(
@@ -174,7 +174,7 @@ class IcpuStats(Istat):
         """
         # Get No of Cores
         no_of_cores = int(
-            series['CPU(s)']
+            series["CPU(s)"]
         )  # CPU(s) is a string of the form "2" or "2-4"
 
         # Get Max Instruction Set for single precision
@@ -184,11 +184,11 @@ class IcpuStats(Istat):
 
         # Get clock speed
         if "CPU max MHz" in series:
-            clock_speed = series['CPU max MHz']
+            clock_speed = series["CPU max MHz"]
         elif "CPU MHz" in series:
-            clock_speed = series['CPU MHz']
+            clock_speed = series["CPU MHz"]
         elif "CPU min MHz" in series:
-            clock_speed = series['CPU min MHz']
+            clock_speed = series["CPU min MHz"]
         else:
             raise ValueError("CPU clock speed not found. Please check CPU info.")
 
@@ -196,7 +196,7 @@ class IcpuStats(Istat):
         clock_speed = float(clock_speed) / 10**6
 
         return pd.Series(
-            {'cpu_tflops': no_of_cores * max_instruction_set * clock_speed}
+            {"cpu_tflops": no_of_cores * max_instruction_set * clock_speed}
         )
 
 

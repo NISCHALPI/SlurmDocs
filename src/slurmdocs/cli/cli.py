@@ -49,7 +49,7 @@ logger = get_logger(name=__name__)
 @click.version_option()
 @click.pass_context
 @click.option(
-    '-d', '--debug', is_flag=True, default=False, help='Enable debug logging.'
+    "-d", "--debug", is_flag=True, default=False, help="Enable debug logging."
 )
 def main(
     ctx: click.Context,
@@ -74,10 +74,10 @@ def main(
 
 
 # Add the subcommands.
-main.add_command(database, 'database')
+main.add_command(database, "database")
 
 # Add collect subcommands.
-main.add_command(collect, 'collect')
+main.add_command(collect, "collect")
 
 if __name__ == "__main__":
     main()

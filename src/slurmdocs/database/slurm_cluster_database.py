@@ -19,7 +19,7 @@ import pandas as pd
 from ..parse import IlscpuParser, IscontrolParser, Parser
 from .base_database import BaseDatabase
 
-__all__ = ['SlurmClusterDatabase']
+__all__ = ["SlurmClusterDatabase"]
 
 
 class SlurmClusterDatabase(BaseDatabase):
@@ -77,10 +77,10 @@ class SlurmClusterDatabase(BaseDatabase):
     """
 
     # Default path
-    _defaut_path = Path.home() / '.slurmdocs'
+    _defaut_path = Path.home() / ".slurmdocs"
 
-    _cpu_db_name = 'cpu'
-    _node_db_name = 'node'
+    _cpu_db_name = "cpu"
+    _node_db_name = "node"
 
     def __init__(self, db_name: str, db_path: str | Path | None = None) -> None:
         """Initialize the SlurmClusterDatabase instance.
@@ -106,9 +106,9 @@ class SlurmClusterDatabase(BaseDatabase):
             self.db_path.mkdir(parents=True)
 
         # Init Parsers
-        self.iparsers = {'cpu': IlscpuParser(), 'node': IscontrolParser()}
+        self.iparsers = {"cpu": IlscpuParser(), "node": IscontrolParser()}
         self.parser = Parser(
-            iparser=self.iparsers['cpu'],
+            iparser=self.iparsers["cpu"],
         )
 
         super().__init__(db_path=self.db_path)
@@ -171,7 +171,6 @@ class SlurmClusterDatabase(BaseDatabase):
         # Delete subdirectories
         self._delete(self.db_path / self._cpu_db_name)
         self._delete(self.db_path / self._node_db_name)
-
 
     def remove(self, data: dict) -> None:
         """Remove a specific data entry from the database.
@@ -246,16 +245,16 @@ class SlurmClusterDatabase(BaseDatabase):
             str: The valid key ('cpu' or 'node').
         """
         # Check if key contains cpu or node
-        if 'key' not in query:
+        if "key" not in query:
             raise KeyError(f"Key {query} does not contain key.")
 
-        if query['key'] not in ['cpu', 'node']:
+        if query["key"] not in ["cpu", "node"]:
             raise KeyError(f"Key {query} does not contain cpu or node.")
 
-        if query['key'] == 'cpu':
-            return 'cpu'
+        if query["key"] == "cpu":
+            return "cpu"
 
-        return 'node'
+        return "node"
 
     def _key_filepath(self, query: dict) -> tuple[Path, str]:
         """Get the key and filepath from the query dictionary.
@@ -273,10 +272,10 @@ class SlurmClusterDatabase(BaseDatabase):
         key = self._check_key(query)
 
         # Check get filename
-        if 'filename' not in query:
+        if "filename" not in query:
             raise KeyError(f"Key {query} does not contain filename.")
 
-        return key, self.db_path / key / query['filename']
+        return key, self.db_path / key / query["filename"]
 
     def _filepath_data(self, query: dict) -> tuple[Path, str]:
         """Get the data filepath from the data dictionary.
@@ -293,10 +292,10 @@ class SlurmClusterDatabase(BaseDatabase):
         # Check the key
         key, filepath = self._key_filepath(query)
 
-        if 'data' not in query:
+        if "data" not in query:
             raise KeyError(f"Key {query} does not contain data.")
 
-        return filepath, query['data']
+        return filepath, query["data"]
 
     def insert(self, query: dict) -> None:
         """Insert data into the database.
@@ -308,7 +307,7 @@ class SlurmClusterDatabase(BaseDatabase):
         filepath, data = self._filepath_data(query)
 
         # Write data to file
-        with open(filepath, 'w') as f:
+        with open(filepath, "w") as f:
             f.write(data)
 
     def update(self, query: dict) -> None:
@@ -325,7 +324,7 @@ class SlurmClusterDatabase(BaseDatabase):
             raise FileNotFoundError(f"File {filepath} does not exist.")
 
         # Write data to file
-        self.insert({'key': query['key'], 'filename': query['filename'], 'data': data})
+        self.insert({"key": query["key"], "filename": query["filename"], "data": data})
 
     def query(self, query: dict) -> pd.Series | pd.DataFrame:
         """Query data from the database based on a specified query.
@@ -347,10 +346,10 @@ class SlurmClusterDatabase(BaseDatabase):
         key, filepath = self._key_filepath(query)
 
         # Change parser based on key
-        if key == 'cpu':
-            self.parser.swap(self.iparsers['cpu'])
-        elif key == 'node':
-            self.parser.swap(self.iparsers['node'])
+        if key == "cpu":
+            self.parser.swap(self.iparsers["cpu"])
+        elif key == "node":
+            self.parser.swap(self.iparsers["node"])
 
         return self.parser(filepath=filepath)
 
@@ -366,7 +365,7 @@ class SlurmClusterDatabase(BaseDatabase):
         if isinstance(filename, str):
             filename = Path(filename)
 
-        return (self.db_path / 'cpu' / filename).exists()
+        return (self.db_path / "cpu" / filename).exists()
 
     def is_node_file_available(self) -> bool:
         """Check if the node data file is available in the database.
@@ -391,7 +390,7 @@ class SlurmClusterDatabase(BaseDatabase):
         Returns:
             pd.Series: The queried CPU data as a Pandas Series.
         """
-        return self.query({'key': 'cpu', 'filename': filename})
+        return self.query({"key": "cpu", "filename": filename})
 
     def get_node_file(self) -> pd.DataFrame:
         """Get the filepath of the node data file.
@@ -401,8 +400,8 @@ class SlurmClusterDatabase(BaseDatabase):
         """
         return self.query(
             {
-                'key': 'node',
-                'filename': os.listdir(self.db_path / self._node_db_name)[0],
+                "key": "node",
+                "filename": os.listdir(self.db_path / self._node_db_name)[0],
             }
         )
 
@@ -447,17 +446,17 @@ class SlurmClusterDatabase(BaseDatabase):
         # Get node data
         node_df = self.query(
             {
-                'key': 'node',
-                'filename': os.listdir(self.db_path / self._node_db_name)[0],
+                "key": "node",
+                "filename": os.listdir(self.db_path / self._node_db_name)[0],
             }
         )
 
         # Get all the NodeName
-        node_names = node_df['NodeName']
+        node_names = node_df["NodeName"]
 
         # Check cpu files named nodename.txt are available or not
         cpu_files = [
-            self.is_cpu_file_available(node_name + '.txt') for node_name in node_names
+            self.is_cpu_file_available(node_name + ".txt") for node_name in node_names
         ]
 
         # Calculate coverage

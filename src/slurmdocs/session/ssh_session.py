@@ -21,7 +21,7 @@ from getpass import getpass
 
 import paramiko  # type: ignore
 
-__all__ = ['SSHSessionAuth']
+__all__ = ["SSHSessionAuth"]
 
 
 class SSHSessionAuth:
@@ -102,9 +102,9 @@ class SSHSessionAuth:
 
         # Ping the server to check if it is reachable
         if not no_ping:
-            response = os.system('ping -c 1 ' + self.server)
+            response = os.system("ping -c 1 " + self.server)
             if response != 0:
-                raise ConnectionError('Server not reachable')
+                raise ConnectionError("Server not reachable")
 
         # Get the Remote Username
         self.remote_username = remote_username
@@ -113,27 +113,27 @@ class SSHSessionAuth:
 
         # Get the password if not using key based authentication
         if not use_key_base_aut:
-            warnings.warn(' Need Password Authentication! Not Preffered', stacklevel=1)
+            warnings.warn(" Need Password Authentication! Not Preffered", stacklevel=1)
             self.password = getpass()
 
         # Key Based Authentication
         if use_key_base_aut:
             if path_to_priv_key is None:
                 warnings.warn(
-                    'Using Key Based Authentication, but no path to key is given. Using default path',
+                    "Using Key Based Authentication, but no path to key is given. Using default path",
                     stacklevel=1,
                 )
-                if os.path.exists(f'/home/{os.getlogin()}/.ssh/id_rsa'):
-                    self.path_to_key = f'/home/{os.getlogin()}/.ssh/id_rsa'
+                if os.path.exists(f"/home/{os.getlogin()}/.ssh/id_rsa"):
+                    self.path_to_key = f"/home/{os.getlogin()}/.ssh/id_rsa"
                 else:
                     raise FileNotFoundError(
-                        'No key found in default path. Please provide the path to key'
+                        "No key found in default path. Please provide the path to key"
                     )
             else:
                 self.path_to_key = path_to_priv_key
 
         # port number for ssh connection
-        assert port > 0 and port < 65535, 'Invalid port number'
+        assert port > 0 and port < 65535, "Invalid port number"
         self.port = port
 
     def _create_session(self) -> paramiko.SSHClient:
@@ -159,19 +159,19 @@ class SSHSessionAuth:
                     password=self.password,
                 )
         except paramiko.AuthenticationException:
-            print('Authentication failed, please verify your credentials')
+            print("Authentication failed, please verify your credentials")
         except paramiko.SSHException as sshException:
-            print('Unable to establish SSH connection: %s ' % sshException)
+            print("Unable to establish SSH connection: %s " % sshException)
 
         except Exception as e:
-            print('Error: %s' % e)
+            print("Error: %s" % e)
 
         return ssh_client
 
     def is_connected(self) -> bool:
         """Check if the session is connected."""
         # If the session is not created, return False
-        if not hasattr(self, 'session'):
+        if not hasattr(self, "session"):
             return False
 
         return self.session.get_transport().is_active()

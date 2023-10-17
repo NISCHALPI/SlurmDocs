@@ -44,7 +44,7 @@ import pandas as pd
 
 from .istat import Istat
 
-__all__ = ['AbstractStats', 'Statistics']
+__all__ = ["AbstractStats", "Statistics"]
 
 
 class AbstractStats(ABC):

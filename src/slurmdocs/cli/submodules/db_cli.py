@@ -1,12 +1,14 @@
 """CLI for the slurmdocs database."""
 
 
-import click
-from ...database import SlurmClusterDatabase
-from pathlib import Path
 import os
+from pathlib import Path
 
-__all__ = ['database']
+import click
+
+from ...database import SlurmClusterDatabase
+
+__all__ = ["database"]
 
 
 # TO DO : Fill up the commands for the database subcommand.
@@ -14,19 +16,25 @@ __all__ = ['database']
 @click.version_option()
 @click.pass_context
 @click.option(
-    '-p',
-    '--path',
+    "-p",
+    "--path",
     required=False,
-    help='The path to the database.',
-    type=click.Path(exists=True, file_okay=False, dir_okay=True, writable=True),
-    default=Path.home() / '.slurmdocs',
+    help="The path to the database.",
+    type=click.Path(),
+    default=Path.home() / ".slurmdocs",
 )
 def database(ctx: click.Context, path: Path) -> None:
     """Subcommand for the slurmdocs database operations."""
-    ctx.obj['logger'].debug('Starting database subcommand.')
+    ctx.obj["logger"].debug("Starting database subcommand.")
     # Create the database object
-    ctx.obj['database_path'] = path
-    pass
+    ctx.obj["database_path"] = path
+
+    # If db_path does not exist, create it
+    if not path.exists():
+        path.mkdir(parents=True, exist_ok=True)
+        ctx.obj["logger"].debug(f"Database {path} path created.")
+
+    return
 
 
 # Helper function to get the database object from the context
@@ -34,7 +42,7 @@ def get_database(ctx: click.Context, db_name: str) -> SlurmClusterDatabase:
     """Get the database object from the context."""
     return SlurmClusterDatabase(
         db_name=db_name,
-        db_path=ctx.obj['database_path'],
+        db_path=ctx.obj["database_path"],
     )
 
 
@@ -43,7 +51,7 @@ def get_database(ctx: click.Context, db_name: str) -> SlurmClusterDatabase:
 def avail(ctx: click.Context) -> None:
     """List the available databases."""
     # Get the database path from the context
-    db_path = ctx.obj['database_path']
+    db_path = ctx.obj["database_path"]
 
     # List the databases
     dirs = [d for d in os.listdir(db_path)]
@@ -64,10 +72,11 @@ def avail(ctx: click.Context) -> None:
 
     return
 
+
 @database.command()
 @click.pass_context
 @click.option(
-    '-db', '--database', required=True, help='The database to use.', type=click.STRING
+    "-db", "--database", required=True, help="The database to use.", type=click.STRING
 )
 def destroy(ctx: click.Context, database: str) -> None:
     """Destroy the database including it's subdirectory."""
@@ -76,16 +85,36 @@ def destroy(ctx: click.Context, database: str) -> None:
     # Destroy the database subdirectories
     db.delete()
     # Delete the parent directory
-    db._delete(ctx.obj['database_path']/database)
+    db._delete(ctx.obj["database_path"] / database)
+
+    # Print the success message
+    print("Database destroyed successfully.")
     return
 
 
+@database.command()
+@click.pass_context
+def clean(ctx: click.Context) -> None:
+    """Clean the empty databases."""
+    # Get all the databases
+    dirs = [d for d in os.listdir(ctx.obj["database_path"])]
+
+    counter = 0
+    # Destroy the empty databases
+    for d in dirs:
+        db = SlurmClusterDatabase(db_name=d, db_path=ctx.obj["database_path"])
+        if db.is_empty():
+            counter += 1
+            print(f"Deleting {d} database.")
+            db._delete(ctx.obj["database_path"] / d)
+
+    print(f"Succesfully cleaned {counter} databases.")
 
 
 @database.command()
 @click.pass_context
 @click.option(
-    '-db', '--database', required=True, help='The database to use.', type=click.STRING
+    "-db", "--database", required=True, help="The database to use.", type=click.STRING
 )
 def create(ctx: click.Context, database: str) -> None:
     """Create the database subdirectories."""
@@ -96,37 +125,37 @@ def create(ctx: click.Context, database: str) -> None:
     return
 
 
-
-
 @database.command()
 @click.pass_context
 @click.option(
-    '-db', '--database', required=True, help='The database to use.', type=click.STRING
+    "-db", "--database", required=True, help="The database to use.", type=click.STRING
 )
 @click.option(
-    '-k',
-    '--key',
+    "-k",
+    "--key",
     required=True,
-    help='The key for the database.(node | cpu)',
+    help="The key for the database.(node | cpu)",
     type=click.STRING,
 )
 @click.option(
-    '-f',
-    '--filename',
+    "-f",
+    "--filename",
     required=True,
-    help='The filename to remove.',
+    help="The filename to remove.",
     type=click.STRING,
 )
 @click.option(
-    '-fp',
-    '--filepath',
+    "-fp",
+    "--filepath",
     required=True,
-    help='The filepath to insert.',
+    help="The filepath to insert.",
     type=click.Path(exists=True, file_okay=True, readable=True, resolve_path=True),
 )
-def insert(ctx: click.Context, database :str , key: str, filename: str, filepath : str) -> None:
+def insert(
+    ctx: click.Context, database: str, key: str, filename: str, filepath: str
+) -> None:
     """Insert the file into the database."""
-    # Get the database object 
+    # Get the database object
     db = get_database(ctx, database)
 
     # if empty database, create the database
@@ -134,42 +163,37 @@ def insert(ctx: click.Context, database :str , key: str, filename: str, filepath
         db.create()
 
     # Read the file
-    with open(filepath, 'r') as f:
+    with open(filepath) as f:
         file_content = f.read()
 
     # Insert the file into the database
-    db.insert(
-        query={
-            'key': key,
-            'filename': filename,
-            'data': file_content
-        }
-    )
-    
+    db.insert(query={"key": key, "filename": filename, "data": file_content})
+
     return
+
 
 @database.command()
 @click.pass_context
 @click.option(
-    '-db', '--database', required=True, help='The database to use.', type=click.STRING
+    "-db", "--database", required=True, help="The database to use.", type=click.STRING
 )
 @click.option(
-    '-k',
-    '--key',
+    "-k",
+    "--key",
     required=True,
-    help='The key for the database.(node | cpu)',
+    help="The key for the database.(node | cpu)",
     type=click.STRING,
 )
 @click.option(
-    '-f',
-    '--filename',
+    "-f",
+    "--filename",
     required=True,
-    help='The filename to remove.',
+    help="The filename to remove.",
     type=click.STRING,
 )
-def remove(ctx: click.Context, database : str,  key: str, filename: str) -> None:
+def remove(ctx: click.Context, database: str, key: str, filename: str) -> None:
     """Remove the entries from the database."""
-    query_dict = {'key': key, 'filename': filename}
+    query_dict = {"key": key, "filename": filename}
 
     # Get the database object from the context
     db = get_database(ctx, database)
@@ -182,14 +206,17 @@ def remove(ctx: click.Context, database : str,  key: str, filename: str) -> None
 
 @database.command()
 @click.pass_context
-def coverage(ctx: click.Context) -> None:
+@click.option(
+    "-db", "--database", required=True, help="The database to use.", type=click.STRING
+)
+def coverage(ctx: click.Context, database: str) -> None:
     """Cover the database."""
     # Get the database object from the context
-    db = ctx.obj['database']
+    db = get_database(ctx, database)
 
     # Cover the database
     try:
-        print(f"Coverage: {db.coverage()}")
+        print(f"Coverage: {db.coverage():.1f}%")
     except FileNotFoundError:
         print("Node file not found. Cannot calculate coverage.")
 
@@ -197,15 +224,40 @@ def coverage(ctx: click.Context) -> None:
 
 
 @database.command()
+@click.option(
+    "-db", "--database", required=True, help="The database to use.", type=click.STRING
+)
+@click.option(
+    "-k",
+    "--key",
+    required=True,
+    help="The key for the database.(node | cpu)",
+    type=click.STRING,
+)
+@click.option(
+    "-f",
+    "--filename",
+    required=True,
+    help="The filename to remove.",
+    type=click.STRING,
+)
 @click.pass_context
-def query(ctx: click.Context, query: dict) -> None:
+def query(ctx: click.Context, database: str, key: str, filename: str) -> None:
     """Query the database."""
-    pass
+    # Get the database object from the context
+    db = get_database(ctx, database)
+    # Query the database
+    query_dict = {"key": key, "filename": filename}
+
+    # Print the query
+    print(db.query(query_dict))
+
+    return
 
 
 @database.command()
 @click.option(
-    '-db', '--database', required=True, help='The database to use.', type=click.STRING
+    "-db", "--database", required=True, help="The database to use.", type=click.STRING
 )
 @click.pass_context
 def list(ctx: click.Context, database: str) -> None:
@@ -220,15 +272,56 @@ def list(ctx: click.Context, database: str) -> None:
 
 @database.command()
 @click.pass_context
+@click.option(
+    "-db", "--database", required=True, help="The database to use.", type=click.STRING
+)
 def integrity(ctx: click.Context, database: str) -> None:
     """Check the integrity of the database."""
     # Get the database object from the context
-    db = ctx.obj['database']
-    pass
+    db = get_database(ctx, database)
+    # Check the integrity of the database
+    db.check_integrity(supress=False)
+
+    return
 
 
 @database.command()
 @click.pass_context
-def update(ctx: click.Context, query: dict) -> None:
-    """Update the database."""
-    pass
+@click.option(
+    "-db", "--database", required=True, help="The database to use.", type=click.STRING
+)
+@click.option(
+    "-k",
+    "--key",
+    required=True,
+    help="The key for the database.(node | cpu)",
+    type=click.STRING,
+)
+@click.option(
+    "-f",
+    "--filename",
+    required=True,
+    help="The filename to remove.",
+    type=click.STRING,
+)
+@click.option(
+    "-fp",
+    "--filepath",
+    required=True,
+    help="The filepath to insert.",
+    type=click.Path(exists=True, file_okay=True, readable=True, resolve_path=True),
+)
+def update(
+    ctx: click.Context, database: str, key: str, filename: str, filepath: str
+) -> None:
+    """Update the certan pre-exiting data file."""
+    # Get the database object from the context
+    db = get_database(ctx, database)
+
+    # Query the database
+    query_dict = {"key": key, "filename": filename, "data": filepath}
+
+    # Update the database
+    db.update(query_dict)
+
+    return

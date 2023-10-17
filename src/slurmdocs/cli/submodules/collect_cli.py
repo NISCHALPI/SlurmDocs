@@ -11,28 +11,28 @@ import click
 from ...collecter import Collecter, IlscpuCollecter, IscontrolColllecter
 from ...session import SSHSessionAuth
 
-__all__ = ['collect']
+__all__ = ["collect"]
 
 
 # TO DO : Fill up the commands for the database subcommand.
 @click.group(invoke_without_command=True)
 @click.pass_context
 @click.option(
-    '-u', '--username', required=True, help='The username to use.', type=click.STRING
+    "-u", "--username", required=True, help="The username to use.", type=click.STRING
 )
 @click.option(
-    '-s', '--server', required=True, help='The server to use.', type=click.STRING
+    "-s", "--server", required=True, help="The server to use.", type=click.STRING
 )
 @click.option(
-    '-p', '--port', required=False, help='The port to use.', type=click.INT, default=22
+    "-p", "--port", required=False, help="The port to use.", type=click.INT, default=22
 )
 @click.option(
-    '-k',
-    '--key-path',
+    "-k",
+    "--key-path",
     required=False,
-    help='The key to use.',
+    help="The key to use.",
     type=click.Path(exists=True, readable=True, resolve_path=True),
-    default=Path.home() / '.ssh' / 'id_rsa',
+    default=Path.home() / ".ssh" / "id_rsa",
 )
 def collect(
     ctx: click.Context, username: str, server: str, port: int, key_path: str
@@ -50,7 +50,7 @@ def collect(
         None
 
     """
-    ctx.obj['logger'].debug('Starting collect subcommand.')
+    ctx.obj["logger"].debug("Starting collect subcommand.")
 
     # Create an SSH session | Lazy connect | # TO DO : Add password authentication
     session = SSHSessionAuth(
@@ -61,10 +61,10 @@ def collect(
         path_to_priv_key=key_path,
         no_ping=False,
     )
-    ctx.obj['logger'].debug('Lazy SSH session created.')
+    ctx.obj["logger"].debug("Lazy SSH session created.")
 
     # Add to contex the session
-    ctx.obj['session'] = session
+    ctx.obj["session"] = session
     # Close after subcommand execution
     ctx.call_on_close(session.close)
     return
@@ -73,10 +73,10 @@ def collect(
 @collect.command()
 @click.pass_context
 @click.option(
-    '-save',
-    '--save-dir',
+    "-save",
+    "--save-dir",
     required=False,
-    help='The directory to save the collection.',
+    help="The directory to save the collection.",
     type=click.Path(exists=True, readable=True, resolve_path=True),
     default=Path.cwd(),
 )
@@ -97,10 +97,10 @@ def node(ctx: click.Context, save_dir: str) -> None:
     )
 
     # Connect to the cluster
-    ctx.obj['session'].connect()
+    ctx.obj["session"].connect()
 
     # Collect the data
-    collecter(session=ctx.obj['session'], filename='node_info.txt')
+    collecter(session=ctx.obj["session"], filename="node_info.txt")
 
     return
 
@@ -108,33 +108,33 @@ def node(ctx: click.Context, save_dir: str) -> None:
 @collect.command()
 @click.pass_context
 @click.option(
-    '-n',
-    '--node-name',
+    "-n",
+    "--node-name",
     required=True,
-    help='The node name to collect CPU info.',
+    help="The node name to collect CPU info.",
     type=click.STRING,
 )
 @click.option(
-    '-p',
-    '--partition',
+    "-p",
+    "--partition",
     required=False,
-    help='The partition to collect CPU info.',
+    help="The partition to collect CPU info.",
     type=click.STRING,
-    default='debug',
+    default="debug",
 )
 @click.option(
-    '-qos',
-    '--quality-of-service',
+    "-qos",
+    "--quality-of-service",
     required=False,
-    help='The quality of service to use to collect CPU info.',
+    help="The quality of service to use to collect CPU info.",
     type=click.STRING,
-    default='debug',
+    default="debug",
 )
 @click.option(
-    '-save',
-    '--save-dir',
+    "-save",
+    "--save-dir",
     required=False,
-    help='The directory to save the collection.',
+    help="The directory to save the collection.",
     type=click.Path(exists=True, readable=True, resolve_path=True),
     default=Path.cwd(),
 )
@@ -161,12 +161,12 @@ def cpu(
     collecter = Collecter(icollecter=IlscpuCollecter(timeout=10), save_dir=save_dir)
 
     # Connect to the cluster
-    ctx.obj['session'].connect()
+    ctx.obj["session"].connect()
 
     # Collect the cpu info
     collecter(
-        session=ctx.obj['session'],
-        filename=f'{node_name}.txt',
+        session=ctx.obj["session"],
+        filename=f"{node_name}.txt",
         partition=partition,
         qos=quality_of_service,
         node=node_name,

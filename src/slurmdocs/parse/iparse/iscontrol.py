@@ -80,7 +80,7 @@ class IscontrolParser(IParse):
         """
         # Choose whether to preprocess the dataframe or not
         self.preprocess = preprocess
-        super().__init__('lscpu')
+        super().__init__("lscpu")
 
     def _per_node_filter(self, node: str) -> dict:
         """Per node filter to convert the output of scontrol show node to a dictionary.
@@ -99,10 +99,10 @@ class IscontrolParser(IParse):
             .replace("(null)", "")
             .replace("N/A", "")
             .replace("n/a", "")
-            .replace('n/s', '')
+            .replace("n/s", "")
         )
 
-        node = node.split('@')
+        node = node.split("@")
         ret_dic = {}
         for item in node:
             if item.count("=") >= 1:
@@ -130,7 +130,7 @@ class IscontrolParser(IParse):
         pd.DataFrame: Parsed data stored as a pandas DataFrame.
         """
         # Split the string into nodes
-        nodes = string.split('\n\n')
+        nodes = string.split("\n\n")
 
         # Remove empty lines
         nodes = list(filter(lambda x: len(x) > 0, nodes))
@@ -155,13 +155,13 @@ class IscontrolParser(IParse):
             return None
 
         # Define a regular expression pattern to match GPU entries
-        gpu_pattern = r'gpu:([a-zA-Z0-9-]+:\d+)'
+        gpu_pattern = r"gpu:([a-zA-Z0-9-]+:\d+)"
 
         # Find all GPU matches in the text
         gpu_matches = re.findall(gpu_pattern, gpu)
 
         # Join the matches into a single string by comma
-        return ','.join(gpu_matches)
+        return ",".join(gpu_matches)
 
     def _partitionize(self, dataframe: pd.DataFrame) -> pd.DataFrame:
         """Convert the 'Partitions' field into separate columns in the DataFrame.
@@ -173,7 +173,7 @@ class IscontrolParser(IParse):
         pd.DataFrame: The DataFrame with separate columns for partitions.
         """
         # Seprate partioions inot different columns
-        unique_partitions = dataframe['Partitions'].str.split(',').explode().unique()
+        unique_partitions = dataframe["Partitions"].str.split(",").explode().unique()
 
         partition_dataframe = pd.DataFrame(
             index=dataframe.index, columns=unique_partitions, dtype=bool
@@ -183,7 +183,7 @@ class IscontrolParser(IParse):
         partition_dataframe = partition_dataframe ^ partition_dataframe
 
         for index, row in dataframe.iterrows():
-            for partition in row['Partitions'].split(','):
+            for partition in row["Partitions"].split(","):
                 partition_dataframe.loc[index, partition] = True
 
         # Add a partition identifier to columns name
@@ -194,7 +194,7 @@ class IscontrolParser(IParse):
         # Concatenate the partition dataframe with the original dataframe
         dataframe = pd.concat([dataframe, partition_dataframe], axis=1)
         # Drop the redundant columns
-        dataframe.drop('Partitions', axis=1, inplace=True)
+        dataframe.drop("Partitions", axis=1, inplace=True)
         return dataframe
 
     def _preprocess_dataframe(self, dataframe: pd.DataFrame) -> pd.DataFrame:
@@ -236,7 +236,7 @@ class IscontrolParser(IParse):
         ]
 
         # GPU model filter
-        dataframe['Gres'] = dataframe['Gres'].apply(self._gpu_filter)
+        dataframe["Gres"] = dataframe["Gres"].apply(self._gpu_filter)
 
         return dataframe.drop(columns=redundant_columns)
 

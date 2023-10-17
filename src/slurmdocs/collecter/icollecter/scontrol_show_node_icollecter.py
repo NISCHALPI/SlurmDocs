@@ -47,7 +47,7 @@ from slurmdocs.session.ssh_session import SSHSessionAuth
 
 from .icollecter import ICollecter
 
-__all__ = ['IscontrolColllecter']
+__all__ = ["IscontrolColllecter"]
 
 
 class IscontrolColllecter(ICollecter):
@@ -90,19 +90,19 @@ class IscontrolColllecter(ICollecter):
         # Run the scontrol show node command
         try:
             stdin, stdout, stderr = session.session.exec_command(
-                'scontrol show node', timeout=self._timeout
+                "scontrol show node", timeout=self._timeout
             )
         except TimeoutError:
             raise TimeoutError("Timeout occured! See if the server is available")
 
         # Read the output and error
-        output = stdout.read().decode('utf-8')
-        error = stderr.read().decode('utf-8')
+        output = stdout.read().decode("utf-8")
+        error = stderr.read().decode("utf-8")
 
         # Check if there was an error
-        if 'error' in error.lower():
+        if "error" in error.lower():
             raise RuntimeError(
-                'Error in scontrol show node command. Please check server has Slurm installed.'
+                "Error in scontrol show node command. Please check server has Slurm installed."
             )
 
         return output

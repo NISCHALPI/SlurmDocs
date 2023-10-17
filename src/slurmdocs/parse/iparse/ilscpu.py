@@ -49,7 +49,7 @@ class IlscpuParser(IParse):
 
     def __init__(self) -> None:
         """Initialize the Ilscpu object."""
-        super().__init__('lscpu')
+        super().__init__("lscpu")
 
     def _parse_lscpu(self, string: str) -> pd.Series:
         """Parse LSCPU output from the specified file.
@@ -64,13 +64,13 @@ class IlscpuParser(IParse):
 
         for line in string:
             # Skip empty lines
-            if line == '\n':
+            if line == "\n":
                 continue
 
             # Strip whitespace
             line = line.strip()
 
-            key, value = line.split(':', maxsplit=1)
+            key, value = line.split(":", maxsplit=1)
             key = key.strip()
             value = value.strip()
 
