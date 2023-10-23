@@ -471,3 +471,18 @@ class SlurmClusterDatabase(BaseDatabase):
         return len(os.listdir(self.db_path / self._cpu_db_name)) + len(
             os.listdir(self.db_path / self._node_db_name)
         )
+    
+
+    def __iter__(self) -> pd.Series:
+        """_summary_.
+
+        Returns:
+            pd.Series: _description_
+        """
+        # Empty Guards
+        if self.is_empty():
+            raise FileNotFoundError(f"Database {self.db_path} is empty.")
+        
+        # Iterator over the cpu files
+        for cpu_file in os.listdir(self.db_path / self._cpu_db_name):
+            yield self.query({"key": "cpu", "filename": cpu_file})
