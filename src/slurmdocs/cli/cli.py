@@ -9,6 +9,7 @@ import click
 
 from .submodules.collect_cli import collect
 from .submodules.db_cli import database
+from .submodules.stats_cli import stats
 
 # Set up logging.
 logging.basicConfig(
@@ -59,13 +60,7 @@ def main(
     ctx.ensure_object(dict)
     # Add the logger to the context.
     ctx.obj["logger"] = logger
-    # Add the debug flag to the context.
-    ctx.obj["debug"] = debug
-
-    # Enable debug logging if specified.
-    if ctx.obj["debug"]:
-        logger.setLevel(logging.DEBUG)
-        logger.debug("Debug logging enabled.")
+    # Add the debug flag to the context.you")
 
     # Enable debug logging if specified.
     logger.debug("Starting CLI.")
@@ -78,6 +73,9 @@ main.add_command(database, "database")
 
 # Add collect subcommands.
 main.add_command(collect, "collect")
+
+# Add stats subcommands.
+main.add_command(stats, "stats")
 
 if __name__ == "__main__":
     main()
