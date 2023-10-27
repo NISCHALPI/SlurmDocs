@@ -2,11 +2,14 @@
 
 
 from pathlib import Path
-from ...statistics import Statistics, IcpuStats, IgpuStats
+
 import click
-from ...database import SlurmClusterDatabase
+import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
+
+from ...database import SlurmClusterDatabase
+from ...statistics import IcpuStats, IgpuStats, Statistics
 
 __all__ = ["stats"]
 
@@ -44,17 +47,11 @@ GPU_COLUMN_NAME_REMAPPER = {
 }
 
 
-@click.group(invoke_without_command=True)
+@click.group(invoke_without_command=True, no_args_is_help=True)
 @click.version_option()
 @click.pass_context
 def stats(ctx: click.Context) -> None:
-    """_summary_.
-
-    Args:
-        ctx (click.Context): _description_
-        path (Path): _description_
-        database (str): _description_
-    """
+    "Subcommand for the slurmdocs statistics."  # noqa: D300
     ctx.obj["logger"].debug("Starting stats subcommand.")
     return
 
@@ -106,7 +103,7 @@ def stats(ctx: click.Context) -> None:
     help="The path to the GPU model file containing model and flops.",
 )
 def tflops(
-    ctx: click.Context,
+    ctx: click.Context,  # noqa: ARG001
     database: str,
     path: Path,
     gpu: bool,
@@ -114,11 +111,7 @@ def tflops(
     file_type: str,
     gpu_model_file: Path,
 ) -> None:
-    """_summary_
-
-    Args:
-        ctx (click.Context): _description_
-    """
+    """Calculate the TFLOPS of each node in the cluster."""
     # Create the statistics object
     calculator = Statistics(istats=IcpuStats())
 
@@ -210,7 +203,7 @@ def tflops(
 
     # Rename the columns
     node_df.rename(columns=GPU_COLUMN_NAME_REMAPPER if gpu else {}, inplace=True)
-    node_df.rename(columns={"cpu_tflops": "CPU_TFLOPS"}, inplace=True)
+    node_df.rename(columns={"cpu_tflops": "CPU TFLOPS"}, inplace=True)
 
     # Infer relevant data types
     node_df = node_df.infer_objects()
@@ -228,23 +221,15 @@ def tflops(
     return
 
 
-@stats.command()
-@click.pass_context
-@click.option(
-    "-t",
-    "--tflops-file",
-    required=True,
-    type=click.Path(file_okay=True, exists=True, path_type=Path),
-    help="The path to the tflops file.",
-)
-def plots(ctx: click.Context, tflops_file: Path) -> None:
-    """_summary_
+def read_tflops_file_helper_func(tflops_file: Path) -> pd.DataFrame:
+    """_summary_.
 
     Args:
-        ctx (click.Context): _description_
         tflops_file (Path): _description_
+
+    Returns:
+        pd.DataFrame: _description_
     """
-    # Read the tflops file
     if tflops_file.suffix == ".csv":
         tflops_df = pd.read_csv(tflops_file)
 
@@ -257,12 +242,133 @@ def plots(ctx: click.Context, tflops_file: Path) -> None:
     else:
         raise click.ClickException("Invalid file type. Must be csv, json or html.")
 
-    # Visualize the data using seaborn
-    sns.figsize = (20, 10)
-    sns.axes_style("whitegrid")
+    return tflops_df
 
-    # Plot the CPU TFLOPS vs NodeName
-    import matplotlib.pyplot as plt
-    sns.barplot(x="NodeName", y="CPU_TFLOPS", data=tflops_df, palette="viridis")
-    plt.xticks(rotation=90)
-    plt.show()
+
+def barplot_helper_func(
+    df: pd.DataFrame,
+    x: str,
+    y: str,
+    hue: str,
+    ax: plt.Axes,
+    palette: str,
+    title: str,
+    rotation: int = 0,
+) -> tuple:
+    """Create a barplot using Seaborn.
+
+    Args:
+        df (pd.DataFrame): The input DataFrame.
+        x (str): The column name for the x-axis.
+        y (str): The column name for the y-axis.
+        hue (str): The column name for the hue.
+        ax (plt.Axes): The matplotlib axes object to plot on.
+        palette (str): The color palette to use.
+        title (str): The title of the plot.
+        rotation (int, optional): The rotation angle of the x-axis labels. Defaults to 0.
+
+    Returns:
+        tuple: A tuple containing the matplotlib figure and axes objects.
+    """
+    # Create fig and ax
+    fig, ax = plt.subplots(figsize=(20, 10))
+
+    # Create the barplot
+    ax = sns.barplot(x=x, y=y, hue=hue, data=df, ax=ax, palette=palette)
+
+    # Set the x and y labels
+    ax.set_xlabel(x)
+    ax.set_ylabel(y)
+
+    # Set the title
+    ax.set_title(title)
+
+    # Rotate the xticks if needed
+    ax.set_xticklabels(ax.get_xticklabels(), rotation=rotation)
+
+    return fig, ax
+
+
+def save_fig_helper_func(fig: plt.Figure, save_path: Path) -> None:
+    """_summary_.
+
+    Args:
+        fig (plt.Figure): _description_
+        save_path (Path): _description_
+    """
+    # Improve the figure layout
+    fig.tight_layout()
+
+    # Save the figure
+    fig.savefig(save_path, bbox_inches="tight", dpi=300)
+
+    # Close the figure
+    plt.close(fig)
+
+    return
+
+
+@stats.command()
+@click.pass_context
+@click.option(
+    "-t",
+    "--tflops-file",
+    required=True,
+    type=click.Path(file_okay=True, exists=True, path_type=Path),
+    help="The path to the tflops file.",
+)
+@click.option(
+    "-s",
+    "--save-path",
+    required=False,
+    type=click.Path(path_type=Path),
+    help="The path to save the plot to.",
+    default=Path.cwd(),
+)
+def plots(
+    ctx: click.Context, tflops_file: Path, save_path: Path  # noqa: ARG001
+) -> None:
+    """Generate plots from the tflops file."""
+    # Read the tflops file
+    tflops_df = read_tflops_file_helper_func(tflops_file)
+
+    # Generate the plots
+    # Plot 1: NodeName vs CPU TFLOPS
+    fig, ax = barplot_helper_func(
+        df=tflops_df,
+        x="NodeName",
+        y="CPU TFLOPS",
+        hue="Partition",
+        ax=None,
+        palette="magma",
+        title="NodeName vs CPU TFLOPS",
+        rotation=90,
+    )
+    save_fig_helper_func(fig, save_path / "NodeName_vs_CPU_TFLOPS.png")
+
+    # Plot 2: NodeName vs GPU TFLOPS
+    gpu_nodes = tflops_df[tflops_df["GPU TFLOPS"] != 0]
+    fig, ax = barplot_helper_func(
+        df=gpu_nodes,
+        x="NodeName",
+        y="GPU TFLOPS",
+        hue="CPUTot",
+        ax=None,
+        palette="viridis",
+        title="NodeName vs GPU TFLOPS",
+        rotation=90,
+    )
+    save_fig_helper_func(fig, save_path / "NodeName_vs_GPU_TFLOPS.png")
+
+    # Plot 3 : Pie Chart of CPU Model Composition with legend
+    fig, ax = plt.subplots(figsize=(20, 10))
+    cpu_comp = tflops_df["Model name"].value_counts()
+    ax.pie(
+        cpu_comp.values,
+        labels=cpu_comp.index,
+        autopct="%1.1f%%",
+        shadow=False,
+        startangle=90,
+    )
+    ax.set_title("CPU Model Composition")
+    save_fig_helper_func(fig, save_path / "CPU_Model_Composition.png")

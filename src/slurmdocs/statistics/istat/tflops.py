@@ -243,6 +243,8 @@ class IgpuStats(Istat):
         - Ensure that you have the necessary GPU model to TFLOPS mapping data or use the default mapping provided in the module.
     """
 
+    default_gpu_model_tflops_dataframe = Path(__file__).parent / "gpu_specs.csv"
+
     def __init__(self, gpu_model_tflops_dataframe: str | Path = None) -> None:
         """Initializes an instance of IgpuStats.
 
@@ -265,6 +267,55 @@ class IgpuStats(Istat):
             print(self._gpu_dataframe.head())
 
             self._gpu_dataframe = pd.read_csv(gpu_model_tflops_dataframe)
+
+    @staticmethod
+    def update_default_gpu_model_tflops_dataframe(
+        model: str,
+        single_precision_tflops: float,
+        double_precision_tflops: float,
+        deep_learning_tflops: float,
+        memory_in_gb: float,
+        cuda_cores: int,
+        tensor_cores: int,
+        half_precision_tflops: float,
+        force: bool = False,
+    ) -> None:
+        """Docs"""
+
+        # Read the default GPU model to TFLOPS DataFrame
+        defaut_gpu_model_tflops_dataframe = pd.read_csv(
+            IgpuStats.default_gpu_model_tflops_dataframe, index_col="Model"
+        )
+
+        # If model is already in the DataFrame, raise a warning if not force
+        if model in defaut_gpu_model_tflops_dataframe.index and not force:
+            warn(
+                f"""GPU model {model} is already in the default GPU model to TFLOPS DataFrame. Skipping the TFLOPS values.
+                To force update, set force=True."""
+            )
+            return
+
+        # Remove the model from the DataFrame if force is True
+        if model in defaut_gpu_model_tflops_dataframe.index and force:
+            defaut_gpu_model_tflops_dataframe.drop(model, axis=0, inplace=True)
+
+        # Add the New GPU model to TFLOPS DataFrame
+        defaut_gpu_model_tflops_dataframe.loc[model] = {
+            "SinglePrecisionTFLOPS": single_precision_tflops,
+            "DeepLearningTFLOPS": deep_learning_tflops,
+            "Memory": memory_in_gb,
+            "CUDACores": cuda_cores,
+            "TensorCores": tensor_cores,
+            "HalfPrecisionTFLOPS": half_precision_tflops,
+            "DoublePrecisionTFLOPS": double_precision_tflops,
+        }
+
+        # Save the DataFrame
+        defaut_gpu_model_tflops_dataframe.to_csv(
+            IgpuStats.default_gpu_model_tflops_dataframe,
+        )
+
+        return
 
     def _compute(self, series: pd.Series) -> pd.Series:
         """Computes GPU statistics based on GPU model and counts in the Slurm job's Gres field.

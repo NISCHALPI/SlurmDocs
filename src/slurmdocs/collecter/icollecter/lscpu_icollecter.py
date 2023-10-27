@@ -70,6 +70,9 @@ class IlscpuCollecter(ICollecter):
         Returns:
             str: The collected 'lscpu' information as a string.
         """
+        # Connect to the session
+        session.connect()
+
         # Check for additional arguments
         if "node" not in kwargs:
             raise ValueError("node argument is required.")
