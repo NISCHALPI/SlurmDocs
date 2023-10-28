@@ -12,7 +12,7 @@ __all__ = ["database"]
 
 
 # TO DO : Fill up the commands for the database subcommand.
-@click.group(invoke_without_command=True)
+@click.group(invoke_without_command=True, no_args_is_help=True)
 @click.version_option()
 @click.pass_context
 @click.option(

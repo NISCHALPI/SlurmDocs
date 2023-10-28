@@ -46,7 +46,7 @@ def get_logger(name: str) -> logging.Logger:
 logger = get_logger(name=__name__)
 
 
-@click.group(invoke_without_command=True)
+@click.group(invoke_without_command=True, no_args_is_help=True)
 @click.version_option()
 @click.pass_context
 @click.option(
@@ -56,7 +56,7 @@ def main(
     ctx: click.Context,
     debug: bool = False,
 ) -> None:
-    """Slurmdocs CLI."""
+    """Slurmdocs CLI for collecting and analyzing SLURM cluster."""
     ctx.ensure_object(dict)
     # Add the logger to the context.
     ctx.obj["logger"] = logger
