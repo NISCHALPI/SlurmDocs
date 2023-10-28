@@ -39,19 +39,7 @@ __all__ = ["collect"]
 def collect(
     ctx: click.Context, username: str, server: str, port: int, key_path: str
 ) -> None:
-    """Subcommand for the slurmdocs database operations.
-
-    Args:
-        ctx (click.Context): Click context.
-        username (str): The username to use for the SSH session.
-        server (str): The server to connect to.
-        port (int): The port to use for the SSH connection.
-        key_path (str): The path to the SSH key file.
-
-    Returns:
-        None
-
-    """
+    """Subcommand for the slurmdocs database operations."""
     ctx.obj["logger"].debug("Starting collect subcommand.")
 
     # Create an SSH session | Lazy connect | # TO DO : Add password authentication
@@ -83,15 +71,7 @@ def collect(
     default=Path.cwd(),
 )
 def node(ctx: click.Context, save_dir: str) -> None:
-    """Collect the node info file from the cluster.
-
-    Args:
-        ctx (click.Context): Click context.
-        save_dir (str): The directory to save the collection.
-
-    Returns:
-        None
-    """
+    """Collect the node info file from the cluster."""
     # Create a Collecter
     collecter = Collecter(
         icollecter=IscontrolColllecter(timeout=10),
@@ -147,18 +127,7 @@ def cpu(
     quality_of_service: str,
     save_dir: str,
 ) -> None:
-    """Collect CPU information for a specific node.
-
-    Args:
-        ctx (click.Context): Click context.
-        node_name (str): The node name to collect CPU info.
-        partition (str): The partition to collect CPU info.
-        quality_of_service (str): The quality of service to use to collect CPU info.
-        save_dir (str): The directory to save the collection.
-
-    Returns:
-        None
-    """
+    """Collect CPU information for a specific node."""
     # Create a Collecter
     collecter = Collecter(icollecter=IlscpuCollecter(timeout=10), save_dir=save_dir)
 

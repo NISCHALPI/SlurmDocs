@@ -212,11 +212,11 @@ def tflops(
 
     # Save the dataframe to a file
     if file_type == "csv":
-        node_df.to_csv(save_dir / "tflops.csv", index=False)
+        node_df.to_csv(save_dir / f"{database}_tflops.csv", index=False)
     elif file_type == "json":
-        node_df.to_json(save_dir / "tflops.json", orient="records")
+        node_df.to_json(save_dir / f"{database}_tflops.json", orient="records")
     elif file_type == "html":
-        node_df.to_html(save_dir / "tflops.html", index=False)
+        node_df.to_html(save_dir / f"{database}_tflops.html", index=False)
 
     return
 
@@ -372,3 +372,62 @@ def plots(
     )
     ax.set_title("CPU Model Composition")
     save_fig_helper_func(fig, save_path / "CPU_Model_Composition.png")
+
+
+
+
+
+@stats.command()
+@click.pass_context
+@click.option(
+    "-t",
+    "--tflops-file",
+    required=True,
+    type=click.Path(file_okay=True, exists=True, path_type=Path),
+    help="The path to the tflops file.",
+)
+def summarize(ctx: click.Context, tflops_file: Path) -> None:
+    """Summarize the tflops file to stdout."""
+    # Read the tflops file
+    tflops_df = read_tflops_file_helper_func(tflops_file)
+
+    # Get Total CPU TFLOPS
+    total_cpu_tflops = tflops_df["CPU TFLOPS"].sum()
+    # Get Total GPU TFLOPS
+    if "GPU TFLOPS" in tflops_df.columns:
+        total_gpu_tflops = tflops_df["GPU TFLOPS"].sum()
+    else:
+        total_gpu_tflops = 0
+
+    # Get Total TFLOPS
+    total_tflops = total_cpu_tflops + total_gpu_tflops
+
+    # Get Total CPU Cores
+    total_cpu_cores = tflops_df["CPUTot"].sum()
+
+    # Get Total GPU Cores
+    if "GPU CUDA Cores" in tflops_df.columns:
+        total_gpu_cores = tflops_df["GPU CUDA Cores"].sum()
+    else:
+        total_gpu_cores = 0
+
+    # Get GPU Memory
+    if "GPU Memory (GB)" in tflops_df.columns:
+        total_gpu_memory = tflops_df["GPU Memory (GB)"].sum()
+    else:
+        total_gpu_memory = 0
+
+    # Get Node Count
+    num_nodes = tflops_df["NodeName"].__len__()
+    
+    # Print the summary
+    click.echo(f"Total Nodes: {num_nodes}")
+    click.echo(f"Total CPU TFLOPS(Single Precision): {total_cpu_tflops}")
+    click.echo(f"Total GPU TFLOPS (Single Precision): {total_gpu_tflops}")
+    click.echo(f"Total TFLOPS (Single Precision): {total_tflops}")
+    click.echo(f"Total CPU Cores: {int(total_cpu_cores)}")
+    click.echo(f"Total GPU Cores: {int(total_gpu_cores)}")
+    click.echo(f"Total GPU Memory (GB): {total_gpu_memory:.2f}")
+
+
+    return
