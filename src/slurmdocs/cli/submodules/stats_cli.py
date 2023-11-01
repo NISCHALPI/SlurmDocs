@@ -374,9 +374,6 @@ def plots(
     save_fig_helper_func(fig, save_path / "CPU_Model_Composition.png")
 
 
-
-
-
 @stats.command()
 @click.pass_context
 @click.option(
@@ -419,7 +416,7 @@ def summarize(ctx: click.Context, tflops_file: Path) -> None:
 
     # Get Node Count
     num_nodes = tflops_df["NodeName"].__len__()
-    
+
     # Print the summary
     click.echo(f"Total Nodes: {num_nodes}")
     click.echo(f"Total CPU TFLOPS(Single Precision): {total_cpu_tflops}")
@@ -428,6 +425,5 @@ def summarize(ctx: click.Context, tflops_file: Path) -> None:
     click.echo(f"Total CPU Cores: {int(total_cpu_cores)}")
     click.echo(f"Total GPU Cores: {int(total_gpu_cores)}")
     click.echo(f"Total GPU Memory (GB): {total_gpu_memory:.2f}")
-
 
     return

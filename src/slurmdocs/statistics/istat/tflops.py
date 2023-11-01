@@ -280,8 +280,7 @@ class IgpuStats(Istat):
         half_precision_tflops: float,
         force: bool = False,
     ) -> None:
-        """Docs"""
-
+        """Docs."""
         # Read the default GPU model to TFLOPS DataFrame
         defaut_gpu_model_tflops_dataframe = pd.read_csv(
             IgpuStats.default_gpu_model_tflops_dataframe, index_col="Model"

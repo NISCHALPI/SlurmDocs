@@ -273,5 +273,5 @@ def sweep(
                         node=noderw["NodeName"],
                     )
                     continue
-                
+
     return

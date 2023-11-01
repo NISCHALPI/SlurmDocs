@@ -1,3 +1,10 @@
+[![Static Badge](https://img.shields.io/badge/PyPI-v1.0.0-purple)](https://pypi.org/project/convinence-torch/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/charliermarsh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Matplotlib](https://img.shields.io/badge/Matplotlib-v3.4.3-blue)](https://matplotlib.org/)
+
+
 # SlurmDocs: Automated Slurm Cluster Documentation
 <img src="./extra/SlurmDocs.png" alt="SlurmDocs Logo" width="600" height='600'/>
 
@@ -78,7 +85,7 @@ are lower case. Optionally, user can override the partiotion and qos needed to c
 ```bash
 slurmdocs collect -u jhondoe -s jhondoe.edu -p 23 -k ~/.ssh sweep -db doehpc -t 10  -p main -qos main --override
 ```
-This assumes that the main or whatever partition can queue jobs in all nodes with the crossponding user account.
+This assumes that the "main" partition can queue jobs in all nodes with the crossponding user account.
 
 
 ### Database Subcommand
@@ -86,6 +93,11 @@ After sweeping the data, by default the data is stored in `~/.slurmdocs` directo
 ```bash
 slurmdocs database avail
 ```
+Here is a sample output from avail command:
+
+<img src="./extra/output/Avail.png" alt="CPU Model Composition"  style="width: 100%"/>
+
+
 This will list all the database which are avaible. Additionally, there is a check mark to the side for each uncorroupted or non empty database.
 Following additional commands are available,
 ```bash
@@ -111,8 +123,7 @@ Commands:
   remove     Remove the entries from the database.
   update     Update the certan pre-exiting data file.
 ```
-The database hierriecy are arranged in two keys (node and cpu) which is required by few subcommands like query and insert. User are recommended to use 
-python API to manuplate the data which will be give as a pandas.DataFrame object.
+The database hierriecy are arranged in two keys (node and cpu) which is required by few subcommands like query and insert. In addition to the CLI, you can use the Python API to manipulate the data. The data is provided as a pandas.DataFrame object, which you can use for custom data analysis and processing.
 
 
 ### Stat Subcommand
@@ -139,7 +150,44 @@ This will generate the html table of the processed data. Now, this file can be u
 ```bash
 slurmdocs stats summarize -t jhondoe_tflops.html
 ```
+The follwing is the sample output of the summary output,
+<img src="./extra/output/SummarizeOut.png" alt="Summarize Out" style="width: 100%;" />
+
 ```bash
 slurmdocs stats tflops plots -ft jhondoe_tflops.html
 ```
-These will generate a summary in stdout and plots files in the cwd.
+These will generate a summary in stdout and plots files in the cwd. The sample plots are,
+
+#### Plot : NodeName vs TFlops
+<img src="./extra/output/plots/chpc/NodeName_vs_CPU_TFLOPS.png" alt="Plot by NodeName"  style="width: 100%"/>
+
+#### Plot : Cpu Model Composition
+<img src="./extra/output/plots/chpc/CPU_Model_Composition.png" alt="CPU Model Composition"  style="width: 100%"/>
+
+#### Plot : GPUs vs TFlops
+<img src="./extra/output/plots/uahpc/NodeName_vs_GPU_TFLOPS.png" alt="GPU Tflops"  style="width: 100%"/>
+
+## Using the Python API
+The SlurmDocs package can be independently used as an API by importing the slurmdocs module after installation. This module is well-documented, making it easy to configure according to your specific requirements. The documentation for collecting and analyzing data using the API is available in the form of a Jupyter notebook located in the `/docs` directory.
+
+This provides flexibility for users who prefer programmatic access to SlurmDocs. The Jupyter notebook serves as a practical guide to help you leverage the API for your specific use cases and data analysis needs.
+
+## Using the Python API
+The SlurmDocs package can be independently used as an API by importing the `slurmdocs` module after installation. This module is well-documented, making it easy to configure according to your specific requirements. The documentation for collecting and analyzing data using the API is available in the form of a Jupyter notebook located in the `/docs` directory.
+
+This provides flexibility for users who prefer programmatic access to SlurmDocs. The Jupyter notebook serves as a practical guide to help you leverage the API for your specific use cases and data analysis needs.
+
+## Contributions and License
+We welcome contributions from the open-source community to enhance the functionality and features of SlurmDocs. If you're interested in contributing or have ideas for improvement, please consider the following:
+
+- **Feature Enhancements:** You can contribute by enhancing existing features or proposing new ones. Feel free to submit feature requests or pull requests on the [GitHub repository](https://github.com/NISCHALPI/SlurmDocs).
+
+- **Bug Reports:** If you encounter any issues or bugs while using SlurmDocs, please report them on the [issue tracker](https://github.com/NISCHALPI/SlurmDocs/issues). Your feedback is valuable in improving the tool.
+
+- **Documentation:** Contributions to documentation, including corrections, improvements, and additional examples, are highly appreciated. You can directly edit the documentation through the GitHub repository.
+
+- **Spread the Word:** If you find SlurmDocs valuable, consider sharing it with your network, colleagues, or on social media. Your support helps us reach a wider audience.
+
+**License:** SlurmDocs is released under the MIT License, which encourages open-source collaboration. You can find the complete license details on [opensource.org](https://opensource.org/licenses/MIT). By using or contributing to SlurmDocs, you agree to abide by the terms of this license.
+
+We appreciate your contributions and support in making SlurmDocs a valuable resource for the community.
