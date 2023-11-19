@@ -10,9 +10,8 @@ from ...database import SlurmClusterDatabase
 
 __all__ = ["database"]
 
-
-# TO DO : Fill up the commands for the database subcommand.
-@click.group(invoke_without_command=True, no_args_is_help=True)
+# Create the database subcommand
+@click.group(no_args_is_help=True, invoke_without_command=True, name="database")
 @click.version_option()
 @click.pass_context
 @click.option(

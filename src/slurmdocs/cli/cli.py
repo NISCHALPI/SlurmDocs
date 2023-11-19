@@ -19,19 +19,17 @@ logging.basicConfig(
 )
 
 
-def get_logger(name: str) -> logging.Logger:
+def get_logger(name: str, level: int = 40) -> logging.Logger:
     """Retrieves a logger instance with the specified name.
 
     Parameters:
         name (str): The name of the logger.
+        level (int): The level of the logger.
 
     Returns:
         logging.Logger: A logger instance with the specified name.
     """
-    # Default level
-    level = 40  # ERROR LEVEL
-
-    # Get level from environment if present
+    # Get level from environment if if
     if os.getenv("LOG") is not None:
         level = int(os.getenv("LOG"))  # type: ignore
 
@@ -40,10 +38,6 @@ def get_logger(name: str) -> logging.Logger:
     logger.setLevel(level=level)  # type: ignore
 
     return logger
-
-
-# Get the logger.
-logger = get_logger(name=__name__)
 
 
 @click.group(invoke_without_command=True, no_args_is_help=True)
@@ -58,9 +52,15 @@ def main(
 ) -> None:
     """Slurmdocs CLI for collecting and analyzing SLURM cluster."""
     ctx.ensure_object(dict)
+
+    # Get the logger.
+    if debug:
+        logger = get_logger("slurmdocs", level=logging.DEBUG)
+    else:
+        logger = get_logger("slurmdocs")
+
     # Add the logger to the context.
     ctx.obj["logger"] = logger
-    # Add the debug flag to the context.you")
 
     # Enable debug logging if specified.
     logger.debug("Starting CLI.")
