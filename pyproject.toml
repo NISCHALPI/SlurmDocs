@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "slurmdocs"
-version = "0.1.0"
+version = "1.0.0"
 description = "A simple cli tool to generate documentation for slurm"
 authors = ["hades <nischalbhattaraipi@gmail.com>"]
 readme = "README.md"
