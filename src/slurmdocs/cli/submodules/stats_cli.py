@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 
+
 from ...database import SlurmClusterDatabase
 from ...statistics import IcpuStats, IgpuStats, Statistics
 
@@ -283,6 +284,9 @@ def barplot_helper_func(
     # Set the title
     ax.set_title(title)
 
+    # Set a fixed number of ticks
+    ax.set_xticks(range(len(df[x])))
+
     # Rotate the xticks if needed
     ax.set_xticklabels(ax.get_xticklabels(), rotation=rotation)
 
@@ -347,18 +351,22 @@ def plots(
     save_fig_helper_func(fig, save_path / "NodeName_vs_CPU_TFLOPS.png")
 
     # Plot 2: NodeName vs GPU TFLOPS
-    gpu_nodes = tflops_df[tflops_df["GPU TFLOPS"] != 0]
-    fig, ax = barplot_helper_func(
-        df=gpu_nodes,
-        x="NodeName",
-        y="GPU TFLOPS",
-        hue="CPUTot",
-        ax=None,
-        palette="viridis",
-        title="NodeName vs GPU TFLOPS",
-        rotation=90,
-    )
-    save_fig_helper_func(fig, save_path / "NodeName_vs_GPU_TFLOPS.png")
+    if "GPU TFLOPS" in tflops_df.columns:
+        gpu_nodes = tflops_df[tflops_df["GPU TFLOPS"] != 0]
+        fig, ax = barplot_helper_func(
+            df=gpu_nodes,
+            x="NodeName",
+            y="GPU TFLOPS",
+            hue="CPUTot",
+            ax=None,
+            palette="viridis",
+            title="NodeName vs GPU TFLOPS",
+            rotation=90,
+        )
+        save_fig_helper_func(fig, save_path / "NodeName_vs_GPU_TFLOPS.png")
+
+    else:
+        click.echo("No GPU TFLOPS data available. Skipping GPU Plots.")
 
     # Plot 3 : Pie Chart of CPU Model Composition with legend
     fig, ax = plt.subplots(figsize=(20, 10))

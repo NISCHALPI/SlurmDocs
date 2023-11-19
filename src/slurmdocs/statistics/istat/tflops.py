@@ -292,7 +292,7 @@ class IgpuStats(Istat):
             tensor_cores (int): The number of Tensor cores.
             half_precision_tflops (float): The TFLOPS value for half precision calculations.
             force (bool, optional): If True, forces the update even if the model already exists in the DataFrame. Defaults to False.
-        
+
 
         Returns:
             None: None.
