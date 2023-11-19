@@ -188,5 +188,11 @@ class SSHSessionAuth:
         """Close the session."""
         if self.is_connected():
             self.session.close()
-
         return
+
+    def is_alive(self) -> bool:
+        """Check if the session is alive."""
+        if self.is_connected():
+            return self.session.get_transport().is_alive()
+
+        return False

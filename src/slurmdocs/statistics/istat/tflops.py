@@ -280,7 +280,23 @@ class IgpuStats(Istat):
         half_precision_tflops: float,
         force: bool = False,
     ) -> None:
-        """Docs."""
+        """Updates the default GPU model to TFLOPS DataFrame with new GPU model and TFLOPS values.
+
+        Args:
+            model (str): The GPU model.
+            single_precision_tflops (float): The TFLOPS value for single precision calculations.
+            double_precision_tflops (float): The TFLOPS value for double precision calculations.
+            deep_learning_tflops (float): The TFLOPS value for deep learning calculations.
+            memory_in_gb (float): The memory capacity in GB.
+            cuda_cores (int): The number of CUDA cores.
+            tensor_cores (int): The number of Tensor cores.
+            half_precision_tflops (float): The TFLOPS value for half precision calculations.
+            force (bool, optional): If True, forces the update even if the model already exists in the DataFrame. Defaults to False.
+        
+
+        Returns:
+            None: None.
+        """
         # Read the default GPU model to TFLOPS DataFrame
         defaut_gpu_model_tflops_dataframe = pd.read_csv(
             IgpuStats.default_gpu_model_tflops_dataframe, index_col="Model"

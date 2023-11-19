@@ -59,10 +59,7 @@ class AbstractStats(ABC):
         Raises:
             TypeError: If istats is not an instance of the Istat class.
         """
-        if not isinstance(istats, Istat):
-            raise TypeError(f"istats must be an instance of Istat, not {type(istats)}")
-
-        self._istats = istats
+        self.istats = istats
 
     @abstractmethod
     def _compute(self, series: pd.Series) -> pd.Series:
@@ -94,6 +91,35 @@ class AbstractStats(ABC):
             str: A string representation of the AbstractStats instance, including the associated Istat configuration.
         """
         return f"{self.__class__.__name__}({self._istats})"
+
+    @property
+    def istats(self) -> Istat:
+        """Return the Istat configuration associated with this instance.
+
+        Returns:
+            Istat: The Istat configuration associated with this instance.
+        """
+        return self._istats
+
+    @istats.setter
+    def istats(self, istats: Istat) -> None:
+        """Set the Istat configuration associated with this instance.
+
+        Args:
+            istats (Istat): The Istat configuration to associate with this instance.
+        """
+        if not isinstance(istats, Istat):
+            raise TypeError(f"istats must be an instance of Istat, not {type(istats)}")
+
+        self._istats = istats
+
+    def swap(self, istats: Istat) -> None:
+        """Swap the Istat interface associated with this instance.
+
+        Args:
+            istats (Istat): The Istat configuration to associate with this instance.
+        """
+        self.istats = istats
 
 
 class Statistics(AbstractStats):

@@ -82,8 +82,6 @@ class AbstractCollecter(ABC):
                 raise FileNotFoundError(f"save_dir {save_dir} does not exist.")
 
             self._save_dir = save_dir
-        else:
-            self._save_dir = Path.cwd()
 
         super().__init__()
 
@@ -152,6 +150,20 @@ class AbstractCollecter(ABC):
             str: The collected data.
         """
         return self._collect(session, filename=filename, **kwargs)
+
+    def swap(self, icollecter: ICollecter) -> None:
+        """Swaps the icollecter of the AbstractCollecter instance.
+
+        Args:
+            icollecter (ICollecter): An instance of a class implementing the ICollecter interface.
+        """
+        # Check if icollecter is an instance of ICollecter
+        if not isinstance(icollecter, ICollecter):
+            raise TypeError(
+                f"icollecter must be an instance of ICollecter. Got {type(icollecter)} instead."
+            )
+        self._icollecter = icollecter
+        return
 
 
 class Collecter(AbstractCollecter):

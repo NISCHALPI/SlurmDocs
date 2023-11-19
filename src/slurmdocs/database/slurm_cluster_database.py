@@ -135,6 +135,16 @@ class SlurmClusterDatabase(BaseDatabase):
 
         return False
 
+    @staticmethod
+    def cleanpath(path: Path = Path.home() / '.slurmdocs') -> None:
+        """Remove empty directories from the default database path."""
+        for dirs in path.iterdir():
+            if dirs.is_dir():
+                if len(os.listdir(dirs)) == 0:
+                    os.rmdir(dirs)
+                    print(f"Removed empty directory {dirs}")
+        return
+
     def create(self) -> None:
         """Create subdirectories for the database."""
         # Create subdirectories
@@ -172,14 +182,14 @@ class SlurmClusterDatabase(BaseDatabase):
         self._delete(self.db_path / self._cpu_db_name)
         self._delete(self.db_path / self._node_db_name)
 
-    def remove(self, data: dict) -> None:
+    def remove(self, query: dict) -> None:
         """Remove a specific data entry from the database.
 
         Args:
-            data (dict): A dictionary containing information about the data to be removed.
+            query (dict): A dictionary containing information about the data to be removed.
         """
         # Get key and filepath
-        _, filepath = self._key_filepath(data)
+        _, filepath = self._key_filepath(query)
 
         # Delete file
         self._delete(filepath)
@@ -301,14 +311,19 @@ class SlurmClusterDatabase(BaseDatabase):
         """Insert data into the database.
 
         Args:
-            query (dict): A dictionary containing information to be inserted into the database.
+            query (dict): A dictionary containing information to be inserted into the database. It should contain the following keys:
+                - key: The key of the data ('cpu' or 'node').
+                - filename: The filename of the data.
+                - data: The data to be inserted.
         """
         # Get filepath and data
         filepath, data = self._filepath_data(query)
 
-        # Write data to file
+        # Write data to file if exists otherwise overwrite
         with open(filepath, "w") as f:
             f.write(data)
+
+        return
 
     def update(self, query: dict) -> None:
         """Update data in the database.
