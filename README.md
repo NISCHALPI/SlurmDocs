@@ -173,9 +173,7 @@ The SlurmDocs package can be independently used as an API by importing the slurm
 This provides flexibility for users who prefer programmatic access to SlurmDocs. The Jupyter notebook serves as a practical guide to help you leverage the API for your specific use cases and data analysis needs.
 
 ## Using the Python API
-The SlurmDocs package can be independently used as an API by importing the `slurmdocs` module after installation. This module is well-documented, making it easy to configure according to your specific requirements. The documentation for collecting and analyzing data using the API is available in the form of a Jupyter notebook located in the `/docs` directory.
-
-This provides flexibility for users who prefer programmatic access to SlurmDocs. The Jupyter notebook serves as a practical guide to help you leverage the API for your specific use cases and data analysis needs.
+The SlurmDocs package can be independently used as an API by importing the `slurmdocs` module after installation. This module is well-documented, making it easy to configure according to your specific requirements. 
 
 ## Contributions and License
 We welcome contributions from the open-source community to enhance the functionality and features of SlurmDocs. If you're interested in contributing or have ideas for improvement, please consider the following:
